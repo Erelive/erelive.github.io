@@ -162,6 +162,14 @@ span{
 
 .home-img{
     border-radius: 50%;
+    margin-top: 185px;
+}
+
+.santa-hat {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: scale(1) rotate(-15deg) translateX(-10%) translateY(-160%);
 }
 
 .home-img img{
@@ -257,6 +265,12 @@ body.light-mode .typing-text span::after{
     display: flex;
     justify-content: center;
     margin-top: 30px;
+}
+
+.snowflake {
+    position: fixed;
+    color: rgb(149, 216, 250);
+    font-size: 20px;
 }
 
 @keyframes cursor{
