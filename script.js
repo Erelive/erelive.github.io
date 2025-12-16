@@ -54,7 +54,7 @@ setInterval(() => {
 
 //? Text script
 const typingText = document.querySelector('.typing-text span');
-const textArray = ['a Computer Science Graduate.', 'a Developer.', 'a Cybersecurity Enthusiast.', 'also CompTIA Security+ Certified!'];
+const textArray = ['a Gamer.', 'an Anime fan.', 'a Reader.', 'also Chronically Online'];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
