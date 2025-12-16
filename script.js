@@ -1,20 +1,16 @@
-// Get the theme toggle button
+//? light/dark theme script
 const themeToggle = document.getElementById('themeToggle');
 
-// Check for saved theme preference or default to dark mode
 const currentTheme = localStorage.getItem('theme') || 'dark';
 
-// Apply the saved theme on page load
 if (currentTheme === 'light') {
     document.body.classList.add('light-mode');
     themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
 }
 
-// Toggle theme when button is clicked
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
     
-    // Update button icon (not text)
     if (document.body.classList.contains('light-mode')) {
         themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
         localStorage.setItem('theme', 'light');
@@ -24,6 +20,39 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
+//? script to create snowflakes
+function createSnowflakes() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.textContent = '❄'; 
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.top = '-20px'; 
+    document.body.appendChild(snowflake)
+    return snowflake;
+}
+
+let snowflakes = [];
+
+function animateSnowflakes() {
+    snowflakes.forEach((flake, index) => { //? loops through every item inside snowflakes array
+        let currentTop = parseFloat(flake.element.style.top); 
+        currentTop += flake.speed; 
+        flake.element.style.top = currentTop + 'px'; 
+        if (currentTop > window.innerHeight) { 
+            flake.element.remove();
+            snowflakes.splice(index, 1); 
+        }
+    });
+    requestAnimationFrame(animateSnowflakes);
+}
+
+animateSnowflakes();
+setInterval(() => {
+    const element = createSnowflakes();
+    snowflakes.push({element: element, speed: Math.random() * 2 + 1});
+}, 175);
+
+//? Text script
 const typingText = document.querySelector('.typing-text span');
 const textArray = ['a Computer Science Graduate.', 'a Developer.', 'a Cybersecurity Enthusiast.', 'also CompTIA Security+ Certified!'];
 let textIndex = 0;
