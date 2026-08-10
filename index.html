@@ -1,44 +1,506 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Personal Website</title>
-</head>
-<body>
-    <header>
-        <a href="#" class="logo">Personal Website</a>
+    <title>Kevin Jiang — Software Engineer</title>
+    <meta name="description" content="Kevin Jiang — software engineer in New York, NY, focused on full-stack web development and application security. CompTIA Security+ certified.">
+    <meta name="author" content="Kevin Jiang">
 
-        <nav>
-            <a href="/"> Home</a>
-            <a href="animes.html" >Animes</a>
-            <a href="comics.html" >Comics</a>
-            <a href="games.html" >Games</a>
-        </nav>
-        <button id="themeToggle" class="btn theme-btn"> <i class="fa-solid fa-sun"></i> </button>
-    </header>
-    <section class="home">
-        <div class="home-img">
-            <div class="avatar-wrapper">
-            <img src="img/main.jpg" alt="">
-            <img src="img/santa_hat.png" class="santa-hat">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kevin Jiang — Software Engineer">
+    <meta property="og:description" content="Software engineer focused on full-stack web development and application security.">
+    <meta property="og:url" content="https://erelive.github.io/">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="canonical" href="https://erelive.github.io/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='system-ui,sans-serif' font-weight='700' fill='%237fcaeb'>K</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Apply the saved theme before first paint so there's no flash of the wrong one. -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme');
+                if (saved === 'light' || saved === 'dark') {
+                    document.documentElement.setAttribute('data-theme', saved);
+                }
+            } catch (err) { /* storage blocked — fall back to the OS preference */ }
+        })();
+    </script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Icon sprite: keeps the page dependency-free (no icon CDN). -->
+    <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="i-github" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/>
+        </symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 6.5h18v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Zm0 .5 9 6.5L21 7"/>
+        </symbol>
+        <symbol id="i-download" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 19h16"/>
+        </symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.66-5.66 1.41-1.41M4.93 19.07l1.41-1.41m11.32 0 1.41 1.41M4.93 4.93l1.41 1.41"/>
+            <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        </symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20.5 14.3A8.5 8.5 0 1 1 9.7 3.5a7 7 0 0 0 10.8 10.8Z"/>
+        </symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/>
+        </symbol>
+        <symbol id="i-close" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/>
+        </symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0-5.5-5.5M19 12l-5.5 5.5"/>
+        </symbol>
+    </svg>
+
+    <header class="site-header" id="siteHeader">
+        <div class="shell header-inner">
+            <a href="#top" class="logo">
+                <span class="logo-mark">KJ</span>
+                <span class="logo-text">Kevin Jiang</span>
+            </a>
+
+            <nav class="nav" id="primaryNav" aria-label="Primary">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to light theme">
+                    <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+                    <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+                </button>
+                <button id="navToggle" class="icon-btn nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+                    <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"></use></svg>
+                    <svg class="icon icon-shut" aria-hidden="true"><use href="#i-close"></use></svg>
+                </button>
             </div>
         </div>
-        <div class="home-content">
-            <h1>Hi, it's <span><strong>Kevin!</strong></span></h1>
-            <h3 class="typing-text">I'm <span></span></h3>
-            <p>Welcome to my little corner of the internet!
+    </header>
 
-            It seems like you’ve stumbled upon my personal website. Here, I share the things I’m passionate about, whether it’s diving into the latest games, exploring virtual worlds, or just geeking out over things I love.
+    <main id="main">
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="top">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="shell hero-inner">
+                <div class="hero-copy">
+                    <p class="eyebrow">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        New York, NY &middot; Open to opportunities
+                    </p>
 
-            You’ll find playthroughs, highlights from my favorite games, and thoughts on the media and hobbies that keep me inspired.
+                    <h1>Hi, I'm <span class="accent">Kevin</span>.</h1>
 
-            Take a look around, explore my interests, and maybe you’ll find something that sparks your curiosity too. Whether you’re here for gaming adventures, anime recommendations, or just to see what I’m up to, I’m glad you stopped by!</p>
+                    <p class="hero-role">
+                        I build <span class="typing" data-typing aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
+                    </p>
+
+                    <p class="hero-blurb">
+                        Computer Science graduate from the University at Buffalo working across full-stack
+                        web development and application security. I like the part of the job where a
+                        vague problem turns into something people can actually click on and the part
+                        where you go back and make sure it can't be broken into.
+                    </p>
+
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            View my work
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+                        </a>
+                        <a href="Kevin_Jiang_Resume.pdf" class="btn btn-ghost" download>
+                            <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+                            Resume
+                        </a>
+                    </div>
+
+                    <ul class="hero-links">
+                        <li>
+                            <a href="https://github.com/Erelive" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin.com/in/kjiangcs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:kjiang052003@gmail.com" aria-label="Email">
+                                <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Decorative: everything here is stated in full elsewhere on the
+                     page, so it's hidden from assistive tech rather than read out. -->
+                <div class="terminal" aria-hidden="true">
+                    <div class="terminal-bar">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-amber"></span>
+                        <span class="terminal-dot dot-green"></span>
+                        <span class="terminal-title">kevin@portfolio: ~</span>
+                    </div>
+
+                    <div class="terminal-body">
+                        <p class="term-cmd"><span class="term-prompt">$</span> whoami</p>
+                        <p class="term-out">kevin_jiang</p>
+
+                        <p class="term-cmd"><span class="term-prompt">$</span> cat stack.txt</p>
+                        <p class="term-out">react &middot; node &middot; express &middot; postgres</p>
+                        <p class="term-out">python &middot; c &middot; sql &middot; socket.io</p>
+
+                        <p class="term-cmd"><span class="term-prompt">$</span> security --certs</p>
+                        <p class="term-out term-hl">CompTIA Security+ SY0-701</p>
+
+                        <p class="term-cmd"><span class="term-prompt">$</span><span class="term-caret"></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ABOUT ============ -->
+        <section class="section" id="about">
+            <div class="shell">
+                <header class="section-head reveal">
+                    <p class="section-kicker">01 &mdash; About</p>
+                    <h2>Security-minded engineering</h2>
+                </header>
+
+                <div class="about-grid">
+                    <div class="about-copy reveal">
+                        <p>
+                            I graduated from the University at Buffalo in 2025 with a B.S. in Computer Science,
+                            with coursework concentrated in software security, computer security, systems
+                            programming, and networking.
+                        </p>
+                        <p>
+                            My work has pulled from both sides of that. I've shipped product features on a
+                            real-time collaborative app, and I've spent semesters running SYN floods and
+                            session hijacking attacks in a lab to understand exactly why protocols fail.
+                            Those two habits reinforce each other: knowing how things break makes you build
+                            them more carefully.
+                        </p>
+                        <p>
+                            Most recently I worked as an AI Trainer through the Handshake AI Fellowship,
+                            evaluating model output against rubrics and writing adversarial prompts.
+                        </p>
+                    </div>
+
+                    <aside class="about-card reveal">
+                        <h3>At a glance</h3>
+                        <dl class="fact-list">
+                            <div class="fact">
+                                <dt>Based in</dt>
+                                <dd>New York, NY</dd>
+                            </div>
+                            <div class="fact">
+                                <dt>Education</dt>
+                                <dd>B.S. Computer Science<br><span class="muted">University at Buffalo, SUNY &middot; 2025</span></dd>
+                            </div>
+                            <div class="fact">
+                                <dt>Certification</dt>
+                                <dd>CompTIA Security+ SY0-701<br><span class="muted">Valid through Oct 2028</span></dd>
+                            </div>
+                            <div class="fact">
+                                <dt>Focus</dt>
+                                <dd>Full-stack web &middot; App security</dd>
+                            </div>
+                        </dl>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EXPERIENCE ============ -->
+        <section class="section section-alt" id="experience">
+            <div class="shell">
+                <header class="section-head reveal">
+                    <p class="section-kicker">02 &mdash; Experience</p>
+                    <h2>Where I've worked</h2>
+                </header>
+
+                <ol class="timeline">
+                    <li class="timeline-item reveal">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+                        <article class="timeline-card">
+                            <div class="timeline-top">
+                                <div>
+                                    <h3>AI Trainer</h3>
+                                    <p class="org">Handshake AI Fellowship <span class="muted">&middot; Remote</span></p>
+                                </div>
+                                <p class="period">Nov 2025 &ndash; Feb 2026</p>
+                            </div>
+                            <ul class="bullets">
+                                <li>Evaluated 100+ LLM responses across multiple domains, identifying failure patterns and writing 50+ adversarial prompts to improve evaluation accuracy.</li>
+                                <li>Improved label consistency across the eval dataset by scoring outputs against rubrics for accuracy, clarity, and depth, feeding structured expert feedback into fine-tuning rounds.</li>
+                            </ul>
+                        </article>
+                    </li>
+
+                    <li class="timeline-item reveal">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+                        <article class="timeline-card">
+                            <div class="timeline-top">
+                                <div>
+                                    <h3>Cybersecurity Program Lead</h3>
+                                    <p class="org">Discovery Lab Global <span class="muted">&middot; Dayton, OH</span></p>
+                                </div>
+                                <p class="period">Apr 2023 &ndash; Aug 2023</p>
+                            </div>
+                            <ul class="bullets">
+                                <li>Reduced human-factor security risk by authoring 130+ pages of training material used to educate high school instructors on phishing, social engineering, and network security practices.</li>
+                                <li>Made the curriculum hands-on by walking teachers through VPN setup and Wi-Fi hardening to model safe network practices for students.</li>
+                            </ul>
+                        </article>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ============ PROJECTS ============ -->
+        <section class="section" id="projects">
+            <div class="shell">
+                <header class="section-head reveal">
+                    <p class="section-kicker">03 &mdash; Projects</p>
+                    <h2>Things I've built</h2>
+                </header>
+
+                <div class="project-grid">
+                    <article class="project-card featured reveal">
+                        <div class="project-head">
+                            <div>
+                                <p class="project-label">Featured</p>
+                                <h3>CosmoBoard</h3>
+                            </div>
+                            <p class="period">Feb &ndash; Jul 2026</p>
+                        </div>
+
+                        <p class="project-summary">
+                            A real-time collaborative scrum board that drew <strong>10,000+ views in its first week</strong>.
+                            I contributed 60+ commits across 8 merged pull requests.
+                        </p>
+
+                        <ul class="bullets">
+                            <li>Connected the PostgreSQL database and wired up the Express API routes behind the board and card features.</li>
+                            <li>Owned frontend design end to end &mdash; themed dashboard, auth page, and board views in React with light/dark mode, avatar customization, and responsive mobile layouts.</li>
+                            <li>Built the core task-board workflow: drag-and-drop cards, collapsible columns with WIP limits, threaded comments with S3-backed image uploads, and last-edited attribution.</li>
+                            <li>Reduced credential-exposure risk by keeping secrets out of version control behind a documented <code>.env.example</code>, and hardened account handling with a password-change flow and a fix for a logout defect that left broken sessions.</li>
+                        </ul>
+
+                        <ul class="tags">
+                            <li>React</li>
+                            <li>Express.js</li>
+                            <li>Socket.IO</li>
+                            <li>PostgreSQL</li>
+                            <li>AWS S3</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <div class="project-head">
+                            <div>
+                                <h3>Chat Security Simulation</h3>
+                            </div>
+                            <p class="period">Oct &ndash; Dec 2024</p>
+                        </div>
+
+                        <p class="project-summary">
+                            A Python chat application used as a testbed for hardening a real client/server stack.
+                        </p>
+
+                        <ul class="bullets">
+                            <li>Prevented credential leakage by moving secrets to environment variables across Ubuntu Linux and Windows deployments.</li>
+                            <li>Ran 10+ security tests against XSS, SQL injection, and DoS vulnerabilities on both frontend and backend, validating resilience through Wireshark traffic analysis.</li>
+                        </ul>
+
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>Wireshark</li>
+                            <li>Linux</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <div class="project-head">
+                            <div>
+                                <h3>SEED Security Labs</h3>
+                            </div>
+                            <p class="period">Sep &ndash; Dec 2024</p>
+                        </div>
+
+                        <p class="project-summary">
+                            Hands-on offensive and defensive network security work, taken from exploit to root cause.
+                        </p>
+
+                        <ul class="bullets">
+                            <li>Demonstrated how protocol weaknesses are exploited by running SYN flood and session hijacking attacks, then diagnosing the root cause.</li>
+                            <li>Traced packet flows by capturing and spoofing traffic with Wireshark and Scapy.</li>
+                            <li>Reinforced secure-communication concepts through hands-on PKI work with encryption and certificate validation.</li>
+                        </ul>
+
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>Scapy</li>
+                            <li>Wireshark</li>
+                            <li>Ubuntu Linux</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <p class="section-footnote reveal">
+                    More on
+                    <a href="https://github.com/Erelive" target="_blank" rel="noopener noreferrer">GitHub
+                        <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ SKILLS ============ -->
+        <section class="section section-alt" id="skills">
+            <div class="shell">
+                <header class="section-head reveal">
+                    <p class="section-kicker">04 &mdash; Skills</p>
+                    <h2>What I worked with</h2>
+                </header>
+
+                <div class="skills-grid">
+                    <article class="skill-card reveal">
+                        <h3>Languages</h3>
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>C</li>
+                            <li>JavaScript</li>
+                            <li>SQL</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card reveal">
+                        <h3>Frameworks &amp; Libraries</h3>
+                        <ul class="tags">
+                            <li>React</li>
+                            <li>Node.js</li>
+                            <li>Express.js</li>
+                            <li>Socket.IO</li>
+                            <li>PostgreSQL</li>
+                            <li>Vite</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card reveal">
+                        <h3>Networking</h3>
+                        <ul class="tags">
+                            <li>TCP/IP</li>
+                            <li>DNS</li>
+                            <li>HTTP</li>
+                            <li>SSH</li>
+                            <li>VPN</li>
+                            <li>Wi-Fi</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card reveal">
+                        <h3>Tools &amp; Platforms</h3>
+                        <ul class="tags">
+                            <li>Git</li>
+                            <li>VS Code</li>
+                            <li>Wireshark</li>
+                            <li>Oracle VM</li>
+                            <li>Ubuntu Linux</li>
+                            <li>Windows</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card reveal">
+                        <h3>Security Frameworks</h3>
+                        <ul class="tags">
+                            <li>NIST CSF</li>
+                            <li>NIST SP 800-171</li>
+                            <li>ISO/IEC 27001</li>
+                        </ul>
+                    </article>
+
+                    <article class="skill-card skill-card-cert reveal">
+                        <h3>Certification</h3>
+                        <p class="cert-name">CompTIA Security+</p>
+                        <p class="cert-meta">SY0-701 &middot; Oct 2025 &ndash; Oct 2028</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section class="section contact" id="contact">
+            <div class="shell">
+                <div class="contact-card reveal">
+                    <p class="section-kicker">05 &mdash; Contact</p>
+                    <h2>Let's build something</h2>
+                    <p class="contact-blurb">
+                        I'm open to software engineering and security roles. The fastest way to reach me is
+                        email.
+                    </p>
+
+                    <div class="contact-actions">
+                        <a href="mailto:kjiang052003@gmail.com" class="btn btn-primary">
+                            <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+                            kjiang052003@gmail.com
+                        </a>
+                        <a href="Kevin_Jiang_Resume.pdf" class="btn btn-ghost" download>
+                            <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+                            Download resume
+                        </a>
+                    </div>
+
+                    <ul class="contact-links">
+                        <li>
+                            <a href="https://github.com/Erelive" target="_blank" rel="noopener noreferrer">
+                                <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+                                github.com/Erelive
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin.com/in/kjiangcs" target="_blank" rel="noopener noreferrer">
+                                <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
+                                linkedin.com/in/kjiangcs
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="shell footer-inner">
+            <p>&copy; <span id="year">2026</span> Kevin Jiang</p>
+            <p class="muted">Built with plain HTML, CSS, and JavaScript.</p>
         </div>
-    </section>
+    </footer>
+
     <script src="script.js"></script>
 </body>
+
 </html>

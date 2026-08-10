@@ -1,89 +1,195 @@
-//? light/dark theme script
-const themeToggle = document.getElementById('themeToggle');
+/* ==========================================================================
+   Kevin Jiang — portfolio interactions
+   ========================================================================== */
 
-const currentTheme = localStorage.getItem('theme') || 'dark';
+(function () {
+    'use strict';
 
-if (currentTheme === 'light') {
-    document.body.classList.add('light-mode');
-    themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-}
+    var root = document.documentElement;
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    
-    if (document.body.classList.contains('light-mode')) {
-        themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-        localStorage.setItem('theme', 'light');
-    } else {
-        themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-        localStorage.setItem('theme', 'dark');
+    /* ------------------------------------------------------------ theme --- */
+
+    var themeToggle = document.getElementById('themeToggle');
+    var systemLight = window.matchMedia('(prefers-color-scheme: light)');
+
+    function activeTheme() {
+        var pinned = root.getAttribute('data-theme');
+        if (pinned) return pinned;
+        return systemLight.matches ? 'light' : 'dark';
     }
-});
 
-//? script to create snowflakes
-function createSnowflakes() {
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.textContent = '❄'; 
-    snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    snowflake.style.top = '-20px'; 
-    document.body.appendChild(snowflake)
-    return snowflake;
-}
+    function syncToggleLabel() {
+        if (!themeToggle) return;
+        var next = activeTheme() === 'dark' ? 'light' : 'dark';
+        themeToggle.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+    }
 
-let snowflakes = [];
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+            var next = activeTheme() === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            try {
+                localStorage.setItem('theme', next);
+            } catch (err) {
+                /* Storage can be blocked (private mode); the toggle still works. */
+            }
+            syncToggleLabel();
+        });
+    }
 
-function animateSnowflakes() {
-    snowflakes.forEach((flake, index) => { //? loops through every item inside snowflakes array
-        let currentTop = parseFloat(flake.element.style.top); 
-        currentTop += flake.speed; 
-        flake.element.style.top = currentTop + 'px'; 
-        if (currentTop > window.innerHeight) { 
-            flake.element.remove();
-            snowflakes.splice(index, 1); 
+    // Follow the OS while the visitor hasn't picked a theme themselves.
+    if (typeof systemLight.addEventListener === 'function') {
+        systemLight.addEventListener('change', syncToggleLabel);
+    }
+
+    syncToggleLabel();
+
+    /* ------------------------------------------------------- mobile nav --- */
+
+    var navToggle = document.getElementById('navToggle');
+    var nav = document.getElementById('primaryNav');
+
+    function closeNav() {
+        if (!nav || !navToggle) return;
+        nav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open menu');
+        document.body.classList.remove('nav-open');
+    }
+
+    if (navToggle && nav) {
+        navToggle.addEventListener('click', function () {
+            var opening = !nav.classList.contains('open');
+            nav.classList.toggle('open', opening);
+            navToggle.setAttribute('aria-expanded', String(opening));
+            navToggle.setAttribute('aria-label', opening ? 'Close menu' : 'Open menu');
+            document.body.classList.toggle('nav-open', opening);
+        });
+
+        nav.addEventListener('click', function (event) {
+            if (event.target.closest('a')) closeNav();
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') closeNav();
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 720) closeNav();
+        });
+    }
+
+    /* ---------------------------------------------------- header state --- */
+
+    var header = document.getElementById('siteHeader');
+
+    function onScroll() {
+        if (header) header.classList.toggle('scrolled', window.scrollY > 12);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* -------------------------------------------------- reveal on scroll --- */
+
+    var revealTargets = document.querySelectorAll('.reveal');
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        revealTargets.forEach(function (el) {
+            el.classList.add('visible');
+        });
+    } else {
+        var revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+        revealTargets.forEach(function (el, index) {
+            // Stagger siblings slightly so grids cascade instead of popping at once.
+            el.style.transitionDelay = (index % 4) * 70 + 'ms';
+            revealObserver.observe(el);
+        });
+    }
+
+    /* ------------------------------------------------------- scroll spy --- */
+
+    var sections = Array.prototype.slice.call(
+        document.querySelectorAll('main section[id]')
+    );
+    var navLinks = Array.prototype.slice.call(
+        document.querySelectorAll('.nav a[href^="#"]')
+    );
+
+    function setActiveLink(id) {
+        navLinks.forEach(function (link) {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+    }
+
+    if (sections.length && navLinks.length && 'IntersectionObserver' in window) {
+        var spyObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) setActiveLink(entry.target.id);
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+
+        sections.forEach(function (section) {
+            spyObserver.observe(section);
+        });
+    }
+
+    /* ---------------------------------------------------- typing effect --- */
+
+    var typingEl = document.querySelector('[data-typing]');
+    var phrases = [
+        'full-stack web apps.',
+        'secure, tested systems.',
+        'things that break gracefully.',
+        'tools people actually use.'
+    ];
+
+    if (typingEl) {
+        if (prefersReducedMotion) {
+            typingEl.textContent = phrases[0];
+        } else {
+            var phraseIndex = 0;
+            var charIndex = 0;
+            var deleting = false;
+
+            (function type() {
+                var phrase = phrases[phraseIndex];
+                var delay;
+
+                if (deleting) {
+                    charIndex -= 1;
+                    delay = 35;
+                } else {
+                    charIndex += 1;
+                    delay = 65;
+                }
+
+                typingEl.textContent = phrase.slice(0, charIndex);
+
+                if (!deleting && charIndex === phrase.length) {
+                    deleting = true;
+                    delay = 2000;
+                } else if (deleting && charIndex === 0) {
+                    deleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    delay = 400;
+                }
+
+                setTimeout(type, delay);
+            })();
         }
-    });
-    requestAnimationFrame(animateSnowflakes);
-}
-
-animateSnowflakes();
-setInterval(() => {
-    const element = createSnowflakes();
-    snowflakes.push({element: element, speed: Math.random() * 2 + 1});
-}, 175);
-
-//? Text script
-const typingText = document.querySelector('.typing-text span');
-const textArray = ['a Gamer.', 'an Anime fan.', 'a Reader.', 'also Chronically Online'];
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typingSpeed = 200;
-
-function type() {
-    const currentText = textArray[textIndex];
-    
-    if (isDeleting) {
-        typingText.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-        typingSpeed = 75; 
-    } else {
-        typingText.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
-        typingSpeed = 50; 
     }
-    
-    if (!isDeleting && charIndex === currentText.length) {
-        typingSpeed = 2000; 
-        isDeleting = true;
-    } 
- 
-    else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % textArray.length; 
-        typingSpeed = 500; 
-    }
-    
-    setTimeout(type, typingSpeed);
-}
-type();
+
+    /* ------------------------------------------------------------ misc --- */
+
+    var year = document.getElementById('year');
+    if (year) year.textContent = String(new Date().getFullYear());
+})();
