@@ -907,6 +907,28 @@ h3 {
     text-transform: uppercase;
 }
 
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    color: var(--accent);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.project-link:hover {
+    color: var(--accent-strong);
+}
+
+.project-link .icon {
+    transition: transform 0.2s var(--ease);
+}
+
+.project-link:hover .icon {
+    transform: translateX(3px);
+}
+
 .project-summary {
     margin-bottom: 1.15rem;
     color: var(--text);
