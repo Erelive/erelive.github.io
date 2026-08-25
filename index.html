@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kevin Jiang — Software Engineer</title>
-    <meta name="description" content="Kevin Jiang — software engineer in New York, NY, focused on full-stack web development and application security. CompTIA Security+ certified.">
+    <meta name="description" content="Kevin Jiang — software engineer in Brooklyn, NY, focused on full-stack web development and application security. CompTIA Security+ certified.">
     <meta name="author" content="Kevin Jiang">
 
     <meta property="og:type" content="website">
@@ -15,14 +15,15 @@
     <meta name="twitter:card" content="summary">
 
     <link rel="canonical" href="https://erelive.github.io/">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='system-ui,sans-serif' font-weight='700' fill='%237fcaeb'>K</text></svg>">
+    <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#12110f" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='Georgia,serif' font-weight='400' fill='%23e0703f'>K</text></svg>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400..700;1,400..600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
-    <!-- Apply the saved theme before first paint so there's no flash of the wrong one. -->
     <script>
         (function () {
             try {
@@ -30,7 +31,7 @@
                 if (saved === 'light' || saved === 'dark') {
                     document.documentElement.setAttribute('data-theme', saved);
                 }
-            } catch (err) { /* storage blocked — fall back to the OS preference */ }
+            } catch (err) { }
         })();
     </script>
 </head>
@@ -38,7 +39,6 @@
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Icon sprite: keeps the page dependency-free (no icon CDN). -->
     <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
         <symbol id="i-github" viewBox="0 0 24 24">
             <path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/>
@@ -72,10 +72,7 @@
 
     <header class="site-header" id="siteHeader">
         <div class="shell header-inner">
-            <a href="#top" class="logo">
-                <span class="logo-mark">KJ</span>
-                <span class="logo-text">Kevin Jiang</span>
-            </a>
+            <a href="#top" class="logo">Kevin Jiang</a>
 
             <nav class="nav" id="primaryNav" aria-label="Primary">
                 <a href="#about">About</a>
@@ -99,27 +96,22 @@
     </header>
 
     <main id="main">
-        <!-- ============ HERO ============ -->
         <section class="hero" id="top">
-            <div class="hero-glow" aria-hidden="true"></div>
             <div class="shell hero-inner">
                 <div class="hero-copy">
-                    <p class="eyebrow">
-                        <span class="status-dot" aria-hidden="true"></span>
-                        New York, NY &middot; Open to opportunities
-                    </p>
-
-                    <h1>Hi, I'm <span class="accent">Kevin</span>.</h1>
-
-                    <p class="hero-role">
-                        I build <span class="typing" data-typing aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
-                    </p>
+                    <h1 class="hero-title">
+                        <span class="hero-name">
+                            Kevin Jiang
+                            <span class="hero-place">Brooklyn, NY</span>
+                        </span>
+                        Software engineer working across full&#8209;stack web
+                        development and application security.
+                    </h1>
 
                     <p class="hero-blurb">
-                        Computer Science graduate from the University at Buffalo working across full-stack
-                        web development and application security. I like the part of the job where a
-                        vague problem turns into something people can actually click on and the part
-                        where you go back and make sure it can't be broken into.
+                        Computer Science graduate from the University at Buffalo. I like the part of
+                        the job where a vague problem turns into something people can actually click
+                        on, and the part where you go back and make sure it can't be broken into.
                     </p>
 
                     <div class="hero-cta">
@@ -135,64 +127,43 @@
 
                     <ul class="hero-links">
                         <li>
-                            <a href="https://github.com/Erelive" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <a href="https://github.com/Erelive" target="_blank" rel="noopener noreferrer">
                                 <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+                                GitHub
                             </a>
                         </li>
                         <li>
-                            <a href="https://linkedin.com/in/kjiangcs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <a href="https://linkedin.com/in/kjiangcs" target="_blank" rel="noopener noreferrer">
                                 <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
+                                LinkedIn
                             </a>
                         </li>
                         <li>
-                            <a href="mailto:kjiang052003@gmail.com" aria-label="Email">
+                            <a href="mailto:kjiang052003@gmail.com">
                                 <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+                                Email
                             </a>
                         </li>
+                        <li class="hero-status">Open to opportunities</li>
                     </ul>
-                </div>
-
-                <!-- Decorative: everything here is stated in full elsewhere on the
-                     page, so it's hidden from assistive tech rather than read out. -->
-                <div class="terminal" aria-hidden="true">
-                    <div class="terminal-bar">
-                        <span class="terminal-dot dot-red"></span>
-                        <span class="terminal-dot dot-amber"></span>
-                        <span class="terminal-dot dot-green"></span>
-                        <span class="terminal-title">kevin@portfolio: ~</span>
-                    </div>
-
-                    <div class="terminal-body">
-                        <p class="term-cmd"><span class="term-prompt">$</span> whoami</p>
-                        <p class="term-out">kevin_jiang</p>
-
-                        <p class="term-cmd"><span class="term-prompt">$</span> cat stack.txt</p>
-                        <p class="term-out">react &middot; node &middot; express &middot; postgres</p>
-                        <p class="term-out">python &middot; c &middot; sql &middot; socket.io</p>
-
-                        <p class="term-cmd"><span class="term-prompt">$</span> security --certs</p>
-                        <p class="term-out term-hl">CompTIA Security+ SY0-701</p>
-
-                        <p class="term-cmd"><span class="term-prompt">$</span><span class="term-caret"></span></p>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============ ABOUT ============ -->
         <section class="section" id="about">
             <div class="shell">
                 <header class="section-head reveal">
-                    <p class="section-kicker">01 &mdash; About</p>
-                    <h2>Security-minded engineering</h2>
+                    <p class="section-kicker">About</p>
+                    <h2>Security-minded <em>engineering</em></h2>
                 </header>
 
                 <div class="about-grid">
                     <div class="about-copy reveal">
                         <p>
-                            I graduated from the University at Buffalo in 2025 with a B.S. in Computer Science,
-                            with coursework concentrated in software security, computer security, systems
-                            programming, and networking.
+                            I graduated from the University at Buffalo in 2025 with a B.S. in Computer
+                            Science, with coursework concentrated in software security, computer
+                            security, embedded operating systems, systems programming, and modern
+                            network concepts.
                         </p>
                         <p>
                             My work has pulled from both sides of that. I've shipped product features on a
@@ -212,11 +183,11 @@
                         <dl class="fact-list">
                             <div class="fact">
                                 <dt>Based in</dt>
-                                <dd>New York, NY</dd>
+                                <dd>Brooklyn, NY</dd>
                             </div>
                             <div class="fact">
                                 <dt>Education</dt>
-                                <dd>B.S. Computer Science<br><span class="muted">University at Buffalo, SUNY &middot; 2025</span></dd>
+                                <dd>B.S. Computer Science<br><span class="muted">University at Buffalo, SUNY &middot; 2021&ndash;2025</span></dd>
                             </div>
                             <div class="fact">
                                 <dt>Certification</dt>
@@ -232,17 +203,15 @@
             </div>
         </section>
 
-        <!-- ============ EXPERIENCE ============ -->
         <section class="section section-alt" id="experience">
             <div class="shell">
                 <header class="section-head reveal">
-                    <p class="section-kicker">02 &mdash; Experience</p>
-                    <h2>Where I've worked</h2>
+                    <p class="section-kicker">Experience</p>
+                    <h2>Where I've <em>worked</em></h2>
                 </header>
 
                 <ol class="timeline">
                     <li class="timeline-item reveal">
-                        <div class="timeline-marker" aria-hidden="true"></div>
                         <article class="timeline-card">
                             <div class="timeline-top">
                                 <div>
@@ -252,14 +221,13 @@
                                 <p class="period">Nov 2025 &ndash; Feb 2026</p>
                             </div>
                             <ul class="bullets">
-                                <li>Evaluated 100+ LLM responses across multiple domains, identifying failure patterns and writing 50+ adversarial prompts to improve evaluation accuracy.</li>
-                                <li>Improved label consistency across the eval dataset by scoring outputs against rubrics for accuracy, clarity, and depth, feeding structured expert feedback into fine-tuning rounds.</li>
+                                <li>Evaluated 100+ LLM responses across multiple domains, identifying failure patterns and creating 50+ adversarial prompts to improve model evaluation accuracy.</li>
+                                <li>Improved label consistency across the eval dataset by scoring outputs against rubrics for accuracy, clarity, and depth, feeding expert feedback into fine-tuning rounds.</li>
                             </ul>
                         </article>
                     </li>
 
                     <li class="timeline-item reveal">
-                        <div class="timeline-marker" aria-hidden="true"></div>
                         <article class="timeline-card">
                             <div class="timeline-top">
                                 <div>
@@ -269,7 +237,7 @@
                                 <p class="period">Apr 2023 &ndash; Aug 2023</p>
                             </div>
                             <ul class="bullets">
-                                <li>Reduced human-factor security risk by authoring 130+ pages of training material used to educate high school instructors on phishing, social engineering, and network security practices.</li>
+                                <li>Reduced human-factor security risks by creating 130+ pages of cybersecurity training materials used to educate high school instructors on phishing, social engineering, and network security practices.</li>
                                 <li>Made the curriculum hands-on by walking teachers through VPN setup and Wi-Fi hardening to model safe network practices for students.</li>
                             </ul>
                         </article>
@@ -278,98 +246,118 @@
             </div>
         </section>
 
-        <!-- ============ PROJECTS ============ -->
         <section class="section" id="projects">
             <div class="shell">
                 <header class="section-head reveal">
-                    <p class="section-kicker">03 &mdash; Projects</p>
-                    <h2>Things I've built</h2>
+                    <p class="section-kicker">Projects</p>
+                    <h2>Things I've <em>built</em></h2>
                 </header>
 
-                <div class="project-grid">
-                    <article class="project-card featured reveal">
-                        <div class="project-head">
-                            <div>
-                                <p class="project-label">Featured</p>
-                                <h3>CosmoBoard</h3>
-                                <a class="project-link" href="https://cosmo-board.com/" target="_blank" rel="noopener noreferrer">cosmo-board.com
-                                    <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
-                                </a>
-                            </div>
+                <ol class="project-index">
+                    <li class="project-entry reveal">
+                        <div class="project-rail">
+                            <p class="project-num" aria-hidden="true">01</p>
+                            <p class="period">Jun &ndash; Aug 2026</p>
+                        </div>
+                        <div class="project-body">
+                            <h3>Tengai</h3>
+                            <a class="project-link" href="https://tengai.pages.dev/" target="_blank" rel="noopener noreferrer">tengai.pages.dev
+                                <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+                            </a>
+                            <p class="project-summary">
+                                A production browser tool that turns any image into an installable
+                                Minecraft resource pack &mdash; one upload in, a drop-in
+                                <code>.zip</code> back.
+                            </p>
+                            <ul class="bullets">
+                                <li>Designed and shipped the whole pipeline, replacing a manual crop, face-map, and archive workflow with a single upload.</li>
+                                <li>Generated the complete six-face texture set, pack metadata, and archive in a single pass, producing output that installs without further user edits.</li>
+                                <li>Ran all processing client-side and deployed as a static site on Cloudflare Pages, so uploads never leave the browser and the tool runs with no backend or hosting cost.</li>
+                            </ul>
+                            <ul class="tags">
+                                <li>TypeScript</li>
+                                <li>React</li>
+                                <li>Vite</li>
+                                <li>Cloudflare Pages</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="project-entry reveal">
+                        <div class="project-rail">
+                            <p class="project-num" aria-hidden="true">02</p>
                             <p class="period">Feb &ndash; Jul 2026</p>
                         </div>
+                        <div class="project-body">
+                            <h3>CosmoBoard</h3>
+                            <a class="project-link" href="https://cosmo-board.com/" target="_blank" rel="noopener noreferrer">cosmo-board.com
+                                <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+                            </a>
+                            <p class="project-summary">
+                                A real-time collaborative scrum board that drew <strong>10,000+ views in its first week</strong>.
+                                I contributed 60+ commits across 8 merged pull requests.
+                            </p>
+                            <ul class="bullets">
+                                <li>Wired the PostgreSQL database and the Express API routes behind the board and card features.</li>
+                                <li>Owned frontend design end to end &mdash; themed dashboard, auth page, and board views in React with light/dark mode, avatar customization, and responsive mobile layouts.</li>
+                                <li>Built the core task-board workflow: drag-and-drop cards, WIP-limited collapsible columns, and threaded comments with S3-backed image uploads and last-edited attribution.</li>
+                                <li>Reduced credential-exposure risk by keeping secrets out of version control behind a documented <code>.env.example</code>, and hardened accounts with a password-change flow and a fix for a logout defect that left broken sessions.</li>
+                            </ul>
+                            <ul class="tags">
+                                <li>React</li>
+                                <li>Express.js</li>
+                                <li>Socket.IO</li>
+                                <li>PostgreSQL</li>
+                                <li>AWS S3</li>
+                            </ul>
+                        </div>
+                    </li>
 
-                        <p class="project-summary">
-                            A real-time collaborative scrum board that drew <strong>10,000+ views in its first week</strong>.
-                            I contributed 60+ commits across 8 merged pull requests.
-                        </p>
-
-                        <ul class="bullets">
-                            <li>Connected the PostgreSQL database and wired up the Express API routes behind the board and card features.</li>
-                            <li>Owned frontend design end to end &mdash; themed dashboard, auth page, and board views in React with light/dark mode, avatar customization, and responsive mobile layouts.</li>
-                            <li>Built the core task-board workflow: drag-and-drop cards, collapsible columns with WIP limits, threaded comments with S3-backed image uploads, and last-edited attribution.</li>
-                            <li>Reduced credential-exposure risk by keeping secrets out of version control behind a documented <code>.env.example</code>, and hardened account handling with a password-change flow and a fix for a logout defect that left broken sessions.</li>
-                        </ul>
-
-                        <ul class="tags">
-                            <li>React</li>
-                            <li>Express.js</li>
-                            <li>Socket.IO</li>
-                            <li>PostgreSQL</li>
-                            <li>AWS S3</li>
-                        </ul>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <div class="project-head">
-                            <div>
-                                <h3>Chat Security Simulation</h3>
-                            </div>
+                    <li class="project-entry reveal">
+                        <div class="project-rail">
+                            <p class="project-num" aria-hidden="true">03</p>
                             <p class="period">Oct &ndash; Dec 2024</p>
                         </div>
+                        <div class="project-body">
+                            <h3>Chat Security Simulation</h3>
+                            <p class="project-summary">
+                                A Python chat application used as a testbed for hardening a real client/server stack.
+                            </p>
+                            <ul class="bullets">
+                                <li>Prevented credential leakage by moving secrets to environment variables across Ubuntu and Windows deployments.</li>
+                                <li>Ran 10+ security tests against XSS, SQL injection, and DoS vulnerabilities, validating resilience through Wireshark traffic analysis.</li>
+                            </ul>
+                            <ul class="tags">
+                                <li>Python</li>
+                                <li>Wireshark</li>
+                                <li>Linux</li>
+                            </ul>
+                        </div>
+                    </li>
 
-                        <p class="project-summary">
-                            A Python chat application used as a testbed for hardening a real client/server stack.
-                        </p>
-
-                        <ul class="bullets">
-                            <li>Prevented credential leakage by moving secrets to environment variables across Ubuntu Linux and Windows deployments.</li>
-                            <li>Ran 10+ security tests against XSS, SQL injection, and DoS vulnerabilities on both frontend and backend, validating resilience through Wireshark traffic analysis.</li>
-                        </ul>
-
-                        <ul class="tags">
-                            <li>Python</li>
-                            <li>Wireshark</li>
-                            <li>Linux</li>
-                        </ul>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <div class="project-head">
-                            <div>
-                                <h3>SEED Security Labs</h3>
-                            </div>
+                    <li class="project-entry reveal">
+                        <div class="project-rail">
+                            <p class="project-num" aria-hidden="true">04</p>
                             <p class="period">Sep &ndash; Dec 2024</p>
                         </div>
-
-                        <p class="project-summary">
-                            Hands-on offensive and defensive network security work, taken from exploit to root cause.
-                        </p>
-
-                        <ul class="bullets">
-                            <li>Demonstrated how protocol weaknesses are exploited by running SYN flood and session hijacking attacks, then diagnosing the root cause.</li>
-                            <li>Traced packet flows by capturing and spoofing traffic with Wireshark and Scapy.</li>
-                            <li>Reinforced secure-communication concepts through hands-on PKI work with encryption and certificate validation.</li>
-                        </ul>
-
-                        <ul class="tags">
-                            <li>Python</li>
-                            <li>Scapy</li>
-                            <li>Wireshark</li>
-                            <li>Ubuntu Linux</li>
-                        </ul>
-                    </article>
-                </div>
+                        <div class="project-body">
+                            <h3>SEED Security Labs</h3>
+                            <p class="project-summary">
+                                Hands-on offensive and defensive network security work, taken from exploit to root cause.
+                            </p>
+                            <ul class="bullets">
+                                <li>Demonstrated how protocol weaknesses are exploited by running SYN flood and session hijacking attacks, then diagnosing the root cause.</li>
+                                <li>Traced packet flows by capturing and spoofing traffic with Wireshark and Scapy, and validated PKI encryption and certificate handling hands-on.</li>
+                            </ul>
+                            <ul class="tags">
+                                <li>Python</li>
+                                <li>Scapy</li>
+                                <li>Wireshark</li>
+                                <li>Ubuntu Linux</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ol>
 
                 <p class="section-footnote reveal">
                     More on
@@ -380,12 +368,11 @@
             </div>
         </section>
 
-        <!-- ============ SKILLS ============ -->
         <section class="section section-alt" id="skills">
             <div class="shell">
                 <header class="section-head reveal">
-                    <p class="section-kicker">04 &mdash; Skills</p>
-                    <h2>What I worked with</h2>
+                    <p class="section-kicker">Skills</p>
+                    <h2>What I <em>worked with</em></h2>
                 </header>
 
                 <div class="skills-grid">
@@ -395,6 +382,7 @@
                             <li>Python</li>
                             <li>C</li>
                             <li>JavaScript</li>
+                            <li>TypeScript</li>
                             <li>SQL</li>
                             <li>HTML</li>
                             <li>CSS</li>
@@ -431,6 +419,7 @@
                             <li>Git</li>
                             <li>VS Code</li>
                             <li>Wireshark</li>
+                            <li>Cloudflare Pages</li>
                             <li>Oracle VM</li>
                             <li>Ubuntu Linux</li>
                             <li>Windows</li>
@@ -446,7 +435,7 @@
                         </ul>
                     </article>
 
-                    <article class="skill-card skill-card-cert reveal">
+                    <article class="skill-card reveal">
                         <h3>Certification</h3>
                         <p class="cert-name">CompTIA Security+</p>
                         <p class="cert-meta">SY0-701 &middot; Oct 2025 &ndash; Oct 2028</p>
@@ -455,12 +444,11 @@
             </div>
         </section>
 
-        <!-- ============ CONTACT ============ -->
         <section class="section contact" id="contact">
             <div class="shell">
                 <div class="contact-card reveal">
-                    <p class="section-kicker">05 &mdash; Contact</p>
-                    <h2>Let's build something</h2>
+                    <p class="section-kicker">Contact</p>
+                    <h2>Let's build <em>something</em></h2>
                     <p class="contact-blurb">
                         I'm open to software engineering and security roles. The fastest way to reach me is
                         email.
