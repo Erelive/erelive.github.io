@@ -1,14 +1,8 @@
-/* ==========================================================================
-   Kevin Jiang — portfolio interactions
-   ========================================================================== */
-
 (function () {
     'use strict';
 
     var root = document.documentElement;
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    /* ------------------------------------------------------------ theme --- */
 
     var themeToggle = document.getElementById('themeToggle');
     var systemLight = window.matchMedia('(prefers-color-scheme: light)');
@@ -31,21 +25,16 @@
             root.setAttribute('data-theme', next);
             try {
                 localStorage.setItem('theme', next);
-            } catch (err) {
-                /* Storage can be blocked (private mode); the toggle still works. */
-            }
+            } catch (err) { }
             syncToggleLabel();
         });
     }
 
-    // Follow the OS while the visitor hasn't picked a theme themselves.
     if (typeof systemLight.addEventListener === 'function') {
         systemLight.addEventListener('change', syncToggleLabel);
     }
 
     syncToggleLabel();
-
-    /* ------------------------------------------------------- mobile nav --- */
 
     var navToggle = document.getElementById('navToggle');
     var nav = document.getElementById('primaryNav');
@@ -80,8 +69,6 @@
         });
     }
 
-    /* ---------------------------------------------------- header state --- */
-
     var header = document.getElementById('siteHeader');
 
     function onScroll() {
@@ -90,8 +77,6 @@
 
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-
-    /* -------------------------------------------------- reveal on scroll --- */
 
     var revealTargets = document.querySelectorAll('.reveal');
 
@@ -109,13 +94,10 @@
         }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
         revealTargets.forEach(function (el, index) {
-            // Stagger siblings slightly so grids cascade instead of popping at once.
             el.style.transitionDelay = (index % 4) * 70 + 'ms';
             revealObserver.observe(el);
         });
     }
-
-    /* ------------------------------------------------------- scroll spy --- */
 
     var sections = Array.prototype.slice.call(
         document.querySelectorAll('main section[id]')
@@ -141,54 +123,6 @@
             spyObserver.observe(section);
         });
     }
-
-    /* ---------------------------------------------------- typing effect --- */
-
-    var typingEl = document.querySelector('[data-typing]');
-    var phrases = [
-        'full-stack web apps.',
-        'secure, tested systems.',
-        'things that break gracefully.',
-        'tools people actually use.'
-    ];
-
-    if (typingEl) {
-        if (prefersReducedMotion) {
-            typingEl.textContent = phrases[0];
-        } else {
-            var phraseIndex = 0;
-            var charIndex = 0;
-            var deleting = false;
-
-            (function type() {
-                var phrase = phrases[phraseIndex];
-                var delay;
-
-                if (deleting) {
-                    charIndex -= 1;
-                    delay = 35;
-                } else {
-                    charIndex += 1;
-                    delay = 65;
-                }
-
-                typingEl.textContent = phrase.slice(0, charIndex);
-
-                if (!deleting && charIndex === phrase.length) {
-                    deleting = true;
-                    delay = 2000;
-                } else if (deleting && charIndex === 0) {
-                    deleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    delay = 400;
-                }
-
-                setTimeout(type, delay);
-            })();
-        }
-    }
-
-    /* ------------------------------------------------------------ misc --- */
 
     var year = document.getElementById('year');
     if (year) year.textContent = String(new Date().getFullYear());
