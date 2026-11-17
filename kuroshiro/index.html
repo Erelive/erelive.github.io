@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KuroShiro — Kevin Jiang</title>
+    <meta name="description" content="KuroShiro: what Kevin Jiang built on top of the open-source DropSauce Android reader, including a sourced guide to what happens next in a story.">
+    <meta name="author" content="Kevin Jiang">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="KuroShiro — Kevin Jiang">
+    <meta property="og:description" content="An Android comic and novel reader, extended with a guide to what happens next that shows its sources.">
+    <meta property="og:url" content="https://erelive.github.io/kuroshiro/">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="canonical" href="https://erelive.github.io/kuroshiro/">
+    <meta name="theme-color" content="#f7f7f4" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f0f0e" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23141413'/><rect x='18' y='70' width='64' height='11' fill='%23ffe04a'/><text x='50' y='66' font-size='62' font-family='Arial,Helvetica,sans-serif' font-weight='700' fill='%23f7f7f4' text-anchor='middle'>K</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=4">
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            root.className += ' js';
+            try {
+                var saved = localStorage.getItem('theme');
+                if (saved === 'light' || saved === 'dark') {
+                    root.setAttribute('data-theme', saved);
+                }
+            } catch (err) { }
+        })();
+    </script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="siteHeader">
+        <div class="wrap header-inner">
+            <a class="wordmark" href="../">Kevin Jiang</a>
+
+            <nav class="nav" id="primaryNav" aria-label="Primary">
+                <a href="#overview">Overview</a>
+                <a href="#work">What I built</a>
+                <a href="#more">Also shipped</a>
+                <a href="../#work">All work</a>
+            </nav>
+
+            <div class="header-tools">
+                <button class="text-btn theme-toggle" id="themeToggle" type="button">Theme</button>
+                <button class="text-btn nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="case-hero" id="top">
+            <div class="wrap">
+                <a class="back" href="../#work"><span aria-hidden="true">&larr;</span> All work</a>
+
+                <div class="case-head">
+                    <div>
+                        <p class="meta">Case study &middot; Android &middot; Oct 2026 &ndash; Present</p>
+                        <h1 class="case-title"><span>KuroShiro</span></h1>
+                    </div>
+                    <img class="case-icon" src="icon.svg" width="136" height="136" alt="KuroShiro app icon: the characters for black and white, each on the other's color">
+                </div>
+
+                <div class="case-intro">
+                    <p class="case-lede">
+                        An Android comic and novel reader, extended with a guide to what happens
+                        next that shows where every claim came from.
+                    </p>
+                    <p class="case-blurb">
+                        KuroShiro (黒白, &ldquo;black and white&rdquo;) is my fork of
+                        <a href="https://github.com/HuzaifaKhalid1311/DropSauce" target="_blank" rel="noopener noreferrer">DropSauce</a>,
+                        an open-source Android reader. This page covers what I added on top of it.
+                    </p>
+                </div>
+
+                <dl class="stats">
+                    <div>
+                        <dt>commits on top of DropSauce</dt>
+                        <dd>43</dd>
+                    </div>
+                    <div>
+                        <dt>unit tests added, taking the suite from 208 to 455</dt>
+                        <dd>247</dd>
+                    </div>
+                    <div>
+                        <dt>releases cut by CI, 1.0.0 to 4.0.5</dt>
+                        <dd>31</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- SCREENSHOTS
+             1. On the phone, take these four screenshots in KuroShiro (power + volume down).
+             2. Save them into kuroshiro/screens/ named exactly:
+                spoilers.png    a series page with the Spoilers card, or the Spoilers screen with its trust labels
+                stats.png       the Statistics screen
+                home.png        the Home tab
+                comments.png    the chapter comments sheet open in the reader
+             3. Delete the two lines below that say screens-start and screens-end. The section then shows. -->
+        <!-- screens-start
+        <section class="section" id="screens">
+            <div class="wrap">
+                <header class="section-head">
+                    <h2>Screens</h2>
+                    <p>Running on a phone</p>
+                </header>
+
+                <ul class="screens" data-reveal>
+                    <li>
+                        <figure>
+                            <img src="screens/spoilers.png" width="1080" height="2400" loading="lazy" alt="KuroShiro's Spoilers screen: the original novel, where the current chapter falls in it, and claims with their trust labels.">
+                            <figcaption><strong>What happens next</strong>Every claim carries a trust label and its sources.</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="screens/stats.png" width="1080" height="2400" loading="lazy" alt="KuroShiro's Statistics screen with reading by hour, weekly totals and a reading calendar.">
+                            <figcaption><strong>Statistics</strong>Built from one read of the reading sessions.</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="screens/home.png" width="1080" height="2400" loading="lazy" alt="KuroShiro's Home tab with series to carry on with and new chapters.">
+                            <figcaption><strong>Home</strong>What to carry on with, and how long the rest takes.</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="screens/comments.png" width="1080" height="2400" loading="lazy" alt="KuroShiro's reader with the chapter comments sheet open.">
+                            <figcaption><strong>Chapter comments</strong>Loaded before the sheet is opened.</figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        screens-end -->
+
+        <section class="section" id="overview">
+            <div class="wrap">
+                <header class="section-head">
+                    <h2>Overview</h2>
+                    <p>A fork, and what I added</p>
+                </header>
+
+                <div class="overview">
+                    <div class="overview-copy" data-reveal>
+                        <p>
+                            DropSauce is a free, open-source (GPLv3) comic and novel reader for
+                            Android. When I forked it on October 14, 2026 it already had the reader,
+                            the library, extension support, tracker sync and Google Drive sync. That
+                            is its maintainers' work, not mine.
+                        </p>
+                        <p>
+                            Everything under &ldquo;What I built&rdquo; comes from my own commits on
+                            top of that base: new features, performance work in the reader, and the
+                            unit tests that cover them. The code is Kotlin, with new screens in
+                            Jetpack Compose.
+                        </p>
+                    </div>
+
+                    <div class="inherited" data-reveal>
+                        <h3>Came with DropSauce</h3>
+                        <ul>
+                            <li>Manga, webtoon and novel reader</li>
+                            <li>Library, history and downloads</li>
+                            <li>Mihon and LNReader extension support</li>
+                            <li>Tracker sync with AniList, MyAnimeList, Kitsu, Shikimori and MangaBaka</li>
+                            <li>Google Drive sync and local backups</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="work">
+            <div class="wrap">
+                <header class="section-head">
+                    <h2>What I built</h2>
+                    <p>Five pieces of work</p>
+                </header>
+
+                <article class="entry">
+                    <div class="entry-head" data-reveal>
+                        <p class="meta">Feature</p>
+                        <h3>A &ldquo;what happens next&rdquo; guide you can check</h3>
+                        <p>
+                            For a comic adapted from a novel, the series page finds the original
+                            novel, places your current chapter in it, and shows what happens next,
+                            with every claim linked to its sources.
+                        </p>
+                    </div>
+
+                    <div class="entry-body" data-reveal>
+                        <ul class="dashes">
+                            <li>Finds the source novel through the MangaUpdates, AniList and ComicK APIs. It matches automatically only when a database lists the novel as the original and the title agrees; otherwise it shows the candidates side by side with the evidence for each.</li>
+                            <li>Maps a comic chapter to a range of novel chapters with a confidence label (Sure, Likely, Rough guess) instead of a single invented number. The reader's own correction overrides every source.</li>
+                            <li>With an optional Claude API key, Claude writes the summary, but each claim has to quote its source. The quote is searched for in the source text, and a claim whose quote isn't found is hidden as unverified.</li>
+                            <li>Encrypts API keys with an Android Keystore key and keeps them out of backups and sync. Spoiler requests use their own HTTP client: no cookies, HTTPS only, <code>robots.txt</code> and per-API rate limits respected.</li>
+                        </ul>
+
+                        <figure class="figure demo">
+                            <div class="frame mapper" data-mapper>
+                                <p class="mapper-q">Where is comic chapter <output data-mapper-comic>22</output> in the novel?</p>
+                                <div class="mapper-live">
+                                    <div data-mapper-stage></div>
+                                    <label class="mapper-control">
+                                        <span>Your chapter</span>
+                                        <input type="range" min="1" max="70" step="1" value="22" data-mapper-input>
+                                    </label>
+                                    <p class="mapper-result" aria-live="polite">
+                                        <strong data-mapper-range>Novel chapters 40&ndash;47</strong>
+                                        &middot; <span data-mapper-confidence>Likely</span>
+                                        <small data-mapper-basis>Worked out between two chapters that sources name. Pick up the novel at chapter 48.</small>
+                                    </p>
+                                </div>
+                                <p class="mapper-static">
+                                    With comic chapters 15 and 30 named by sources, chapter 22 lands on
+                                    novel chapters 40&ndash;47, marked Likely. The live version of this
+                                    figure needs JavaScript.
+                                </p>
+                            </div>
+                            <figcaption>
+                                Live demo: drag along the top line. This is the app's chapter
+                                mapper, ported to JavaScript and run on made-up anchors. Between two
+                                named chapters it interpolates; past the last one it carries on at
+                                the recent pace and the range widens.
+                            </figcaption>
+                        </figure>
+
+                        <ol class="steps" aria-label="How a claim gets its trust label">
+                            <li>
+                                <h4>Gather</h4>
+                                <p>Wikis, databases and reader threads are read through their APIs.</p>
+                            </li>
+                            <li>
+                                <h4>Claim</h4>
+                                <p>Each statement stays tied to the passage it came from.</p>
+                            </li>
+                            <li>
+                                <h4>Check</h4>
+                                <p>An AI-written claim must quote its source, and the quote must be found there.</p>
+                            </li>
+                            <li>
+                                <h4>Label</h4>
+                                <p>Confirmed, Likely, Speculation or Unverified. Unverified stays hidden by default.</p>
+                            </li>
+                        </ol>
+
+                        <p class="entry-stack">Kotlin, Jetpack Compose, Room, Hilt, WorkManager, Claude API</p>
+                    </div>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-head" data-reveal>
+                        <p class="meta">Performance</p>
+                        <h3>A reader that does less wasted work</h3>
+                        <p>
+                            After a UI overhaul, reading used noticeably more battery. I compared
+                            the reading path file by file with the last version before it, and
+                            audited every background worker, wake lock and timer in the app.
+                        </p>
+                    </div>
+
+                    <div class="entry-body" data-reveal>
+                        <ul class="dashes">
+                            <li>Stopped every page of a chapter from downloading at once when it opens, and the next chapter from preloading over mobile data. It now starts 80% of the way through, on Wi-Fi.</li>
+                            <li>Worked out whether there is a next or previous chapter once per chapter, instead of walking the whole chapter list twice on every page turn.</li>
+                            <li>Ended an always-on screen: &ldquo;Keep screen on&rdquo; now lets go after 5 minutes without a touch, so a phone put down mid-chapter goes to sleep.</li>
+                            <li>Cut the extension update check from every app launch to at most once every 6 hours.</li>
+                        </ul>
+
+                        <figure class="figure demo">
+                            <div class="frame">
+                                <p class="preload-label">Before <span>opening a chapter downloaded all of it</span></p>
+                                <div class="pages" aria-hidden="true">
+                                    <i class="here"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                                    <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                                    <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                                    <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                                </div>
+                                <p class="preload-label">After <span>the 10 pages ahead of the one you are on</span></p>
+                                <div class="pages" aria-hidden="true">
+                                    <i class="here"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                                    <i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                                </div>
+                            </div>
+                            <figcaption>
+                                One chapter of 40 pages, just opened. The highlighted square is the
+                                page on screen; filled squares are pages being downloaded.
+                            </figcaption>
+                        </figure>
+
+                        <p class="note">
+                            The audit is written up with what was and wasn't measured. These fixes
+                            follow from the code path; profiling power use on a device is the next
+                            step.
+                        </p>
+
+                        <p class="entry-stack">Kotlin, WorkManager, OkHttp</p>
+                    </div>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-head" data-reveal>
+                        <p class="meta">Feature</p>
+                        <h3>Chapter comments that are already loaded</h3>
+                        <p>
+                            Readers' comments on the chapter you just finished, from ComicK,
+                            opened from inside the reader.
+                        </p>
+                    </div>
+
+                    <div class="entry-body" data-reveal>
+                        <ul class="dashes">
+                            <li>Starts loading a chapter's comments when the reader's bars open or the last page is reached, so the sheet opens with them in place instead of loading on tap.</li>
+                            <li>Shares a request that is already in flight between the preload and the sheet, rather than making it twice.</li>
+                            <li>Caches which upload a chapter's comments belong to on disk for 60 days, and finds it in one request instead of two.</li>
+                        </ul>
+
+                        <p class="entry-stack">Kotlin, Jetpack Compose, REST APIs</p>
+                    </div>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-head" data-reveal>
+                        <p class="meta">Feature</p>
+                        <h3>Download ahead and release schedules</h3>
+                        <p>
+                            Offline reading that looks after itself, and a library that knows
+                            when the next chapter is due.
+                        </p>
+                    </div>
+
+                    <div class="entry-body" data-reveal>
+                        <ul class="dashes">
+                            <li>Keeps the next 1 to 5 chapters of a series downloaded while it is being read, then deletes them once they are behind the current chapter or the series has gone unread for a month. It only ever deletes what it downloaded itself.</li>
+                            <li>Waits for Wi-Fi unless mobile-data downloads are allowed, and reuses pages the reader has already loaded.</li>
+                            <li>Predicts release schedules (&ldquo;Every Thursday &middot; next chapter expected tomorrow&rdquo;) from the dates of chapters already in the database, with no network requests.</li>
+                            <li>Binge mode holds new-chapter notifications until 3, 5, 10 or 20 chapters have piled up, per category or per series.</li>
+                        </ul>
+
+                        <p class="entry-stack">Kotlin, Room, WorkManager</p>
+                    </div>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-head" data-reveal>
+                        <p class="meta">Design</p>
+                        <h3>Home and Statistics, rebuilt</h3>
+                        <p>New Home, Explore and Statistics screens in Jetpack Compose.</p>
+                    </div>
+
+                    <div class="entry-body" data-reveal>
+                        <ul class="dashes">
+                            <li>Statistics shows reading by hour, the last 52 weeks, a reading calendar with streaks, and reading speed over 90 days with a 7-day trend line.</li>
+                            <li>Every section is built from one read of the reading sessions by a pure builder with no clock or database of its own, so it is unit-tested directly.</li>
+                            <li>Chart colors are checked for contrast and for color-blind readers in light and dark, and TalkBack reads each chart's summary.</li>
+                            <li>Home shows what to carry on with, new chapters, and how long the rest of a series takes at your own reading pace.</li>
+                        </ul>
+
+                        <p class="entry-stack">Kotlin, Jetpack Compose, accessibility</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="more">
+            <div class="wrap">
+                <header class="section-head">
+                    <h2>Also shipped</h2>
+                    <p>Smaller things</p>
+                </header>
+
+                <ul class="shipped" data-reveal>
+                    <li>AniList library import and export, run as a background job.</li>
+                    <li>An Ask screen where Claude answers questions about a story with web search, lists the pages it used, and says so when it can't find an answer.</li>
+                    <li>Stand-in covers: a cover still loading after 3 seconds is replaced by the same series' cover from another source, and the slower request is cancelled.</li>
+                    <li>Anime adaptation alerts from AniList, checked 50 series per request alongside the weekly chapter check.</li>
+                    <li>A fix for webtoon pages that rendered warped or cut off.</li>
+                    <li>Labels for icon-only buttons that TalkBack couldn't name.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="next">
+            <div class="wrap">
+                <header class="section-head">
+                    <h2>Next</h2>
+                    <p>The rest of the work</p>
+                </header>
+
+                <p class="next-links" data-reveal>
+                    <a class="go" href="../#work">All work <span aria-hidden="true">&rarr;</span></a>
+                    <a class="go" href="mailto:kjiang052003@gmail.com">Email me <span aria-hidden="true">&rarr;</span></a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-inner">
+                <p>&copy; <span id="year">2026</span> Kevin Jiang</p>
+                <p>Built with plain HTML, CSS, and JavaScript.</p>
+                <p><a href="#top">Back to top &uarr;</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js?v=4"></script>
+</body>
+
+</html>
