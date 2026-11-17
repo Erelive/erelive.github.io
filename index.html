@@ -4,32 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin Jiang — Software Engineer</title>
-    <meta name="description" content="Kevin Jiang — software engineer in Brooklyn, NY, focused on full-stack web development and application security. CompTIA Security+ certified.">
+    <title>Kevin Jiang — Software Developer</title>
+    <meta name="description" content="Kevin Jiang is a software developer and computer science graduate in Brooklyn, NY. Android, desktop and web projects, with a background in security. CompTIA Security+ certified.">
     <meta name="author" content="Kevin Jiang">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Kevin Jiang — Software Engineer">
-    <meta property="og:description" content="Software engineer focused on full-stack web development and application security.">
+    <meta property="og:title" content="Kevin Jiang — Software Developer">
+    <meta property="og:description" content="Software developer building Android, desktop and web apps, with a background in security.">
     <meta property="og:url" content="https://erelive.github.io/">
     <meta name="twitter:card" content="summary">
 
     <link rel="canonical" href="https://erelive.github.io/">
-    <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#12110f" media="(prefers-color-scheme: dark)">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='Georgia,serif' font-weight='400' fill='%23e0703f'>K</text></svg>">
+    <meta name="theme-color" content="#f7f7f4" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f0f0e" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23141413'/><rect x='18' y='70' width='64' height='11' fill='%23ffe04a'/><text x='50' y='66' font-size='62' font-family='Arial,Helvetica,sans-serif' font-weight='700' fill='%23f7f7f4' text-anchor='middle'>K</text></svg>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400..700;1,400..600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=4">
 
     <script>
         (function () {
+            var root = document.documentElement;
+            root.className += ' js';
             try {
                 var saved = localStorage.getItem('theme');
                 if (saved === 'light' || saved === 'dark') {
-                    document.documentElement.setAttribute('data-theme', saved);
+                    root.setAttribute('data-theme', saved);
                 }
             } catch (err) { }
         })();
@@ -39,126 +41,459 @@
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-        <symbol id="i-github" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/>
-        </symbol>
-        <symbol id="i-linkedin" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>
-        </symbol>
-        <symbol id="i-mail" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 6.5h18v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Zm0 .5 9 6.5L21 7"/>
-        </symbol>
-        <symbol id="i-download" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 19h16"/>
-        </symbol>
-        <symbol id="i-sun" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.66-5.66 1.41-1.41M4.93 19.07l1.41-1.41m11.32 0 1.41 1.41M4.93 4.93l1.41 1.41"/>
-            <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
-        </symbol>
-        <symbol id="i-moon" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20.5 14.3A8.5 8.5 0 1 1 9.7 3.5a7 7 0 0 0 10.8 10.8Z"/>
-        </symbol>
-        <symbol id="i-menu" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/>
-        </symbol>
-        <symbol id="i-close" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/>
-        </symbol>
-        <symbol id="i-arrow" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0-5.5-5.5M19 12l-5.5 5.5"/>
-        </symbol>
-    </svg>
-
     <header class="site-header" id="siteHeader">
-        <div class="shell header-inner">
-            <a href="#top" class="logo">Kevin Jiang</a>
+        <div class="wrap header-inner">
+            <a class="wordmark" href="#top">Kevin Jiang</a>
 
             <nav class="nav" id="primaryNav" aria-label="Primary">
-                <a href="#about">About</a>
+                <a href="#work">Work</a>
                 <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
+                <a href="#about">About</a>
                 <a href="#contact">Contact</a>
             </nav>
 
-            <div class="header-actions">
-                <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to light theme">
-                    <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
-                    <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
-                </button>
-                <button id="navToggle" class="icon-btn nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
-                    <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"></use></svg>
-                    <svg class="icon icon-shut" aria-hidden="true"><use href="#i-close"></use></svg>
-                </button>
+            <div class="header-tools">
+                <button class="text-btn theme-toggle" id="themeToggle" type="button">Theme</button>
+                <button class="text-btn nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav">Menu</button>
             </div>
         </div>
     </header>
 
     <main id="main">
         <section class="hero" id="top">
-            <div class="shell hero-inner">
-                <div class="hero-copy">
-                    <h1 class="hero-title">
-                        <span class="hero-name">
-                            Kevin Jiang
-                            <span class="hero-place">Brooklyn, NY</span>
-                        </span>
-                        Software engineer working across full&#8209;stack web
-                        development and application security.
-                    </h1>
+            <div class="wrap">
+                <h1 class="hero-title"><span>Kevin Jiang</span></h1>
+                <p class="hero-lede">Software developer building Android, desktop and web apps, with a background in security.</p>
 
-                    <p class="hero-blurb">
-                        Computer Science graduate from the University at Buffalo. I like the part of
-                        the job where a vague problem turns into something people can actually click
-                        on, and the part where you go back and make sure it can't be broken into.
-                    </p>
-
-                    <div class="hero-cta">
-                        <a href="#projects" class="btn btn-primary">
-                            View my work
-                            <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
-                        </a>
-                        <a href="Kevin_Jiang_Resume.pdf" class="btn btn-ghost" download>
-                            <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
-                            Resume
-                        </a>
+                <div class="hero-grid">
+                    <div class="hero-intro">
+                        <p>
+                            Computer science graduate from the University at Buffalo. I like the part of
+                            the job where a vague problem turns into something people can actually click
+                            on, and the part where you go back and make sure it can't be broken into.
+                        </p>
+                        <p>
+                            Lately that has meant <a href="#kuroshiro">an Android reader</a>,
+                            <a href="#subordinate">live captions on a GPU</a> and
+                            <a href="#tengai">a Minecraft sky tool</a>.
+                        </p>
                     </div>
 
                     <ul class="hero-links">
                         <li>
                             <a href="https://github.com/Erelive" target="_blank" rel="noopener noreferrer">
-                                <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
-                                GitHub
+                                <span class="k">GitHub</span>
+                                <span class="v">github.com/Erelive</span>
+                                <span class="arrow" aria-hidden="true">&nearr;</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://linkedin.com/in/kjiangcs" target="_blank" rel="noopener noreferrer">
-                                <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
-                                LinkedIn
+                                <span class="k">LinkedIn</span>
+                                <span class="v">linkedin.com/in/kjiangcs</span>
+                                <span class="arrow" aria-hidden="true">&nearr;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Kevin_Jiang_Resume.pdf" download>
+                                <span class="k">Resume</span>
+                                <span class="v">One page, PDF</span>
+                                <span class="arrow" aria-hidden="true">&darr;</span>
                             </a>
                         </li>
                         <li>
                             <a href="mailto:kjiang052003@gmail.com">
-                                <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
-                                Email
+                                <span class="k">Email</span>
+                                <span class="v">kjiang052003@gmail.com</span>
+                                <span class="arrow" aria-hidden="true">&nearr;</span>
                             </a>
                         </li>
-                        <li class="hero-status">Open to opportunities</li>
                     </ul>
+                </div>
+
+                <dl class="facts">
+                    <div>
+                        <dt>Based in</dt>
+                        <dd>Brooklyn, NY</dd>
+                    </div>
+                    <div>
+                        <dt>Education</dt>
+                        <dd>B.S. Computer Science<br>University at Buffalo, SUNY, 2021&ndash;2025</dd>
+                    </div>
+                    <div>
+                        <dt>Certification</dt>
+                        <dd>CompTIA Security+ SY0-701<br>Valid through Oct 2028</dd>
+                    </div>
+                    <div>
+                        <dt>Status</dt>
+                        <dd>Open to software engineering and security roles</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="section" id="work">
+            <div class="wrap">
+                <header class="section-head">
+                    <h2>Work</h2>
+                    <p>Five projects, newest first</p>
+                </header>
+
+                <article class="feature feature--lead" id="kuroshiro">
+                    <div class="feature-head" data-reveal>
+                        <p class="meta">Android &middot; Oct 2026 &ndash; Present</p>
+                        <h3 class="feature-title"><a href="kuroshiro/">KuroShiro</a></h3>
+                        <p class="feature-lede">
+                            An Android comic and novel reader. My fork of the open-source
+                            DropSauce, with a guide to what happens next that shows its sources.
+                        </p>
+                        <p class="feature-links">
+                            <a class="go" href="kuroshiro/">Read the case study <span aria-hidden="true">&rarr;</span></a>
+                        </p>
+                    </div>
+
+                    <figure class="feature-figure figure" data-reveal>
+                        <div class="frame mapper" data-mapper>
+                            <p class="mapper-q">Where is comic chapter <output data-mapper-comic>22</output> in the novel?</p>
+                            <div class="mapper-live">
+                                <div data-mapper-stage></div>
+                                <label class="mapper-control">
+                                    <span>Your chapter</span>
+                                    <input type="range" min="1" max="70" step="1" value="22" data-mapper-input>
+                                </label>
+                                <p class="mapper-result" aria-live="polite">
+                                    <strong data-mapper-range>Novel chapters 40&ndash;47</strong>
+                                    &middot; <span data-mapper-confidence>Likely</span>
+                                    <small data-mapper-basis>Worked out between two chapters that sources name. Pick up the novel at chapter 48.</small>
+                                </p>
+                            </div>
+                            <p class="mapper-static">
+                                With comic chapters 15 and 30 named by sources, chapter 22 lands on
+                                novel chapters 40&ndash;47, marked Likely. The live version of this
+                                figure needs JavaScript.
+                            </p>
+                        </div>
+                        <figcaption>
+                            Live demo: drag along the top line. This is the app's chapter mapper,
+                            ported to JavaScript and run on made-up anchors. The range widens the
+                            further you are from a chapter a source names.
+                        </figcaption>
+                    </figure>
+
+                    <dl class="notes" data-reveal>
+                        <div>
+                            <dt>Problem</dt>
+                            <dd>
+                                When a comic adapts a novel, finding out what happens next means
+                                trusting a summary with no sources, and guessing which novel
+                                chapter you are on.
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>What I built</dt>
+                            <dd>
+                                <ul class="dashes">
+                                    <li>A guide that finds the source novel through the MangaUpdates and AniList APIs, maps your chapter to a range of novel chapters, and checks every quoted fact in a Claude-written summary against its source.</li>
+                                    <li>A leaner reader: no whole-chapter preload on mobile data, one chapter-list scan per chapter instead of one per page turn, and a screen that is allowed to sleep.</li>
+                                    <li>Chapter comments that are loaded before you tap, offline download-ahead that cleans up after itself, and <mark>247 new unit tests</mark>.</li>
+                                </ul>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>Stack</dt>
+                            <dd>
+                                <ul class="stack-list">
+                                    <li>Kotlin</li>
+                                    <li>Jetpack Compose</li>
+                                    <li>Room</li>
+                                    <li>WorkManager</li>
+                                    <li>REST APIs</li>
+                                    <li>Claude API</li>
+                                </ul>
+                            </dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <article class="feature feature--wide" id="subordinate">
+                    <figure class="feature-figure figure" data-reveal>
+                        <div class="frame capture">
+                            <img src="assets/subordinate-overlay.png" width="1360" height="191" loading="lazy" alt="The caption overlay showing the sentence: Speech recognition on a personal computer used to require sending audio to a remote server waiting for a response. The last two words are dimmed.">
+                        </div>
+                        <figcaption>
+                            The overlay, captured mid-sentence with the desktop behind it masked out.
+                            White words are confirmed; the grey tail is still being decided.
+                            <span class="scroll-hint">Scroll it sideways to read the whole line.</span>
+                        </figcaption>
+                    </figure>
+
+                    <div class="feature-head" data-reveal>
+                        <p class="meta">Windows &middot; Aug 2026 &ndash; Present</p>
+                        <h3 class="feature-title"><a href="https://github.com/Erelive/Subordinate" target="_blank" rel="noopener noreferrer">Subordinate</a></h3>
+                        <p class="feature-lede">
+                            Live captions for any audio playing on a Windows PC, transcribed
+                            on the machine's own graphics card.
+                        </p>
+                        <p class="feature-links">
+                            <a class="go" href="https://github.com/Erelive/Subordinate" target="_blank" rel="noopener noreferrer">Source on GitHub <span aria-hidden="true">&nearr;</span></a>
+                        </p>
+
+                        <dl class="measures">
+                            <div>
+                                <dt>Caption lag, mean</dt>
+                                <dd>0.64 s</dd>
+                            </div>
+                            <div>
+                                <dt>Caption lag, max</dt>
+                                <dd>1.14 s</dd>
+                            </div>
+                            <div>
+                                <dt>Inference per pass</dt>
+                                <dd>~280 ms</dd>
+                            </div>
+                            <div>
+                                <dt>Backlog drops</dt>
+                                <dd>0</dd>
+                            </div>
+                        </dl>
+                        <p class="measures-note">Measured on an RTX 4060 laptop over 100 seconds of continuous speech.</p>
+                    </div>
+
+                    <dl class="notes" data-reveal>
+                        <div>
+                            <dt>Problem</dt>
+                            <dd>
+                                Live captions usually mean sending audio to a server, and the
+                                text keeps rewriting itself while the model changes its mind.
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>What I built</dt>
+                            <dd>
+                                <ul class="dashes">
+                                    <li>Runs OpenAI's Whisper (large-v3-turbo) through faster-whisper on CUDA, fast enough that captions trail speech by <mark>0.64 s on average</mark>.</li>
+                                    <li>Locks a word in only once two passes agree. Confirmed text is drawn normally and the still-changing tail is dimmed, so captions stop visibly rewriting themselves.</li>
+                                    <li>Captures audio straight off the output device, skips silent stretches, and never touches the network.</li>
+                                </ul>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>Stack</dt>
+                            <dd>
+                                <ul class="stack-list">
+                                    <li>Python</li>
+                                    <li>faster-whisper</li>
+                                    <li>CUDA</li>
+                                    <li>PyQt6</li>
+                                </ul>
+                            </dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <article class="feature feature--flip" id="tengai">
+                    <div class="feature-head" data-reveal>
+                        <p class="meta">Windows &middot; Jun &ndash; Aug 2026</p>
+                        <h3 class="feature-title"><a href="https://tengai.pages.dev/" target="_blank" rel="noopener noreferrer">Tengai</a></h3>
+                        <p class="feature-lede">
+                            Turns any image into an OptiFine custom-sky pack for Minecraft:
+                            one picture wrapped across all six faces of the sky.
+                        </p>
+                        <p class="feature-links">
+                            <a class="go" href="https://tengai.pages.dev/" target="_blank" rel="noopener noreferrer">tengai.pages.dev <span aria-hidden="true">&nearr;</span></a>
+                        </p>
+                    </div>
+
+                    <figure class="feature-aside figure" data-reveal>
+                        <img src="assets/tengai-time.jpg" width="640" height="320" loading="lazy" alt="The same strip of night sky rendered three times, labelled 12:00, 19:00 and 01:00, each darker than the last.">
+                        <figcaption>The same sky at 12:00, 19:00 and 01:00. A pack can fade with the time of day.</figcaption>
+                    </figure>
+
+                    <figure class="feature-figure figure" data-reveal>
+                        <div class="atlas">
+                            <img src="assets/tengai-atlas.jpg" width="1200" height="800" loading="lazy" alt="A night-sky photograph split into six square faces arranged in a three-by-two grid.">
+                            <ul class="atlas-faces" aria-hidden="true">
+                                <li>down</li>
+                                <li>up</li>
+                                <li>south</li>
+                                <li>west</li>
+                                <li>north</li>
+                                <li>east</li>
+                            </ul>
+                        </div>
+                        <figcaption>
+                            A real export: one photo wrapped across the six faces of the sky.
+                            Photo: NPS / Jeremy M. White, public domain.
+                        </figcaption>
+                    </figure>
+
+                    <dl class="notes" data-reveal>
+                        <div>
+                            <dt>Problem</dt>
+                            <dd>
+                                By hand, a custom sky means cropping an image into six faces,
+                                mapping each one and packaging the files.
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>What I built</dt>
+                            <dd>
+                                <ul class="dashes">
+                                    <li>Splits one image across the six faces and writes the finished pack in about a second, entirely on the user's machine: no account, no upload, no command line.</li>
+                                    <li>Ships as a single <mark>1.4 MB .exe</mark>, a C# shell around WebView2 that carries the whole app as one HTML file.</li>
+                                    <li>Gated the download with a Cloudflare Pages Worker that checks access keys on the server and signs sessions with HMAC-SHA-256, covered by 21 tests for refusal, tampering, expiry and open redirects.</li>
+                                </ul>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>Stack</dt>
+                            <dd>
+                                <ul class="stack-list">
+                                    <li>JavaScript</li>
+                                    <li>HTML Canvas</li>
+                                    <li>C#</li>
+                                    <li>WebView2</li>
+                                    <li>Cloudflare Pages</li>
+                                </ul>
+                            </dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <h3 class="subhead">Security labs, 2024</h3>
+
+                <article class="row" data-reveal>
+                    <p class="row-when meta">Oct &ndash; Dec 2024</p>
+                    <div class="row-what">
+                        <h4>Chat Security Simulation</h4>
+                        <p>A Python chat application used as a testbed for hardening a real client/server stack.</p>
+                        <p class="stack">Python, Wireshark, Linux</p>
+                    </div>
+                    <ul class="row-detail dashes">
+                        <li>Prevented credential leakage by moving secrets to environment variables across Ubuntu and Windows deployments.</li>
+                        <li>Ran 10+ security tests against XSS, SQL injection, and DoS vulnerabilities, validating resilience through Wireshark traffic analysis.</li>
+                    </ul>
+                </article>
+
+                <article class="row" data-reveal>
+                    <p class="row-when meta">Sep &ndash; Dec 2024</p>
+                    <div class="row-what">
+                        <h4>SEED Security Labs</h4>
+                        <p>Hands-on offensive and defensive network security work, taken from exploit to root cause.</p>
+                        <p class="stack">Python, Scapy, Wireshark, Ubuntu Linux</p>
+                    </div>
+                    <ul class="row-detail dashes">
+                        <li>Ran SYN flood and session hijacking attacks in a controlled lab, then traced each back to the protocol weakness it exploited.</li>
+                        <li>Captured and forged network traffic with Wireshark and Scapy, and tested encryption certificates (PKI) hands-on.</li>
+                    </ul>
+                </article>
+
+                <p class="more">
+                    <a class="go" href="https://github.com/Erelive" target="_blank" rel="noopener noreferrer">More on GitHub <span aria-hidden="true">&nearr;</span></a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="experience">
+            <div class="wrap">
+                <header class="section-head">
+                    <h2>Experience</h2>
+                    <p>Work, education, certification</p>
+                </header>
+
+                <div class="rows">
+                    <article class="row" data-reveal>
+                        <p class="row-when meta">Nov 2025 &ndash; Nov 2026</p>
+                        <div class="row-what">
+                            <h3>AI Trainer</h3>
+                            <p>Handshake AI Fellowship &middot; Remote</p>
+                        </div>
+                        <ul class="row-detail dashes">
+                            <li>Reviewed 400+ AI chatbot responses across many subjects, pinpointing where the model went wrong and writing 200+ deliberately tricky test prompts to expose its weak spots.</li>
+                            <li>Graded responses against a scoring guide for accuracy, clarity, and depth, producing consistent ratings and written feedback that were used to retrain the model.</li>
+                            <li>Authored 150+ expert reference answers in computer science and cybersecurity with step-by-step reasoning, used as gold-standard examples for the model to learn from.</li>
+                        </ul>
+                    </article>
+
+                    <article class="row" data-reveal>
+                        <p class="row-when meta">Apr 2023 &ndash; Aug 2023</p>
+                        <div class="row-what">
+                            <h3>Cybersecurity Program Lead</h3>
+                            <p>Discovery Lab Global &middot; Dayton, OH</p>
+                        </div>
+                        <ul class="row-detail dashes">
+                            <li>Reduced human-error security risks by writing 130+ pages of cybersecurity training used to teach high school instructors about phishing, social engineering, and network safety.</li>
+                            <li>Made the curriculum hands-on by walking teachers through VPN setup and Wi-Fi hardening to use in class.</li>
+                        </ul>
+                    </article>
+
+                    <article class="row" data-reveal>
+                        <p class="row-when meta">Aug 2021 &ndash; Aug 2025</p>
+                        <div class="row-what">
+                            <h3>B.S. Computer Science</h3>
+                            <p>University at Buffalo, SUNY &middot; Buffalo, NY</p>
+                        </div>
+                        <p class="row-detail">
+                            School of Engineering and Applied Sciences. Coursework concentrated in
+                            software security, computer security, embedded operating systems,
+                            systems programming, and modern network concepts.
+                        </p>
+                    </article>
+
+                    <article class="row" data-reveal>
+                        <p class="row-when meta">Oct 2025 &ndash; Oct 2028</p>
+                        <div class="row-what">
+                            <h3>CompTIA Security+</h3>
+                            <p>SY0-701</p>
+                        </div>
+                        <p class="row-detail">Certification, valid through October 2028.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="about">
-            <div class="shell">
-                <header class="section-head reveal">
-                    <p class="section-kicker">About</p>
-                    <h2>Security-minded <em>engineering</em></h2>
+        <section class="section" id="skills">
+            <div class="wrap">
+                <header class="section-head">
+                    <h2>Skills</h2>
+                    <p>What I have worked with</p>
                 </header>
 
-                <div class="about-grid">
-                    <div class="about-copy reveal">
+                <dl class="spec" data-reveal>
+                    <div>
+                        <dt>Languages</dt>
+                        <dd>Python, C, Kotlin, JavaScript, TypeScript, SQL, HTML, CSS</dd>
+                    </div>
+                    <div>
+                        <dt>Frameworks and libraries</dt>
+                        <dd>React, Node.js, Express.js, Socket.IO, PostgreSQL, Jetpack Compose, Vite, PyQt6, PyTorch</dd>
+                    </div>
+                    <div>
+                        <dt>Networking</dt>
+                        <dd>TCP/IP, DNS, HTTP, SSH, VPN, Wi-Fi, network troubleshooting</dd>
+                    </div>
+                    <div>
+                        <dt>Tools and platforms</dt>
+                        <dd>Git, VS Code, Wireshark, Cloudflare Pages, CUDA, Oracle VM, Ubuntu Linux, Windows, Microsoft Office</dd>
+                    </div>
+                    <div>
+                        <dt>Security frameworks</dt>
+                        <dd>NIST Cybersecurity Framework, NIST SP 800-171, ISO/IEC 27001</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="wrap">
+                <header class="section-head">
+                    <h2>About</h2>
+                    <p>Security-minded engineering</p>
+                </header>
+
+                <div class="about">
+                    <div class="about-body" data-reveal>
                         <p>
                             I graduated from the University at Buffalo in 2025 with a B.S. in Computer
                             Science, with coursework concentrated in software security, computer
@@ -166,318 +501,42 @@
                             network concepts.
                         </p>
                         <p>
-                            My work has pulled from both sides of that. I've shipped product features on a
-                            real-time collaborative app, and I've spent semesters running SYN floods and
-                            session hijacking attacks in a lab to understand exactly why protocols fail.
-                            Those two habits reinforce each other: knowing how things break makes you build
-                            them more carefully.
+                            My work has pulled from both sides of that. I've shipped an Android
+                            reader, a live-captioning tool and a desktop app with a gated download,
+                            and I've spent semesters running SYN floods and session hijacking attacks
+                            in a lab to understand exactly why protocols fail. Those two habits
+                            reinforce each other: knowing how things break makes you build them more
+                            carefully.
                         </p>
                         <p>
-                            Most recently I worked as an AI Trainer through the Handshake AI Fellowship,
-                            evaluating model output against rubrics and writing adversarial prompts.
+                            Most recently I worked as an AI Trainer through the Handshake AI
+                            Fellowship, evaluating model output against rubrics and writing
+                            adversarial prompts.
                         </p>
                     </div>
-
-                    <aside class="about-card reveal">
-                        <h3>At a glance</h3>
-                        <dl class="fact-list">
-                            <div class="fact">
-                                <dt>Based in</dt>
-                                <dd>Brooklyn, NY</dd>
-                            </div>
-                            <div class="fact">
-                                <dt>Education</dt>
-                                <dd>B.S. Computer Science<br><span class="muted">University at Buffalo, SUNY &middot; 2021&ndash;2025</span></dd>
-                            </div>
-                            <div class="fact">
-                                <dt>Certification</dt>
-                                <dd>CompTIA Security+ SY0-701<br><span class="muted">Valid through Oct 2028</span></dd>
-                            </div>
-                            <div class="fact">
-                                <dt>Focus</dt>
-                                <dd>Full-stack web &middot; App security</dd>
-                            </div>
-                        </dl>
-                    </aside>
                 </div>
             </div>
         </section>
 
-        <section class="section section-alt" id="experience">
-            <div class="shell">
-                <header class="section-head reveal">
-                    <p class="section-kicker">Experience</p>
-                    <h2>Where I've <em>worked</em></h2>
+        <section class="section" id="contact">
+            <div class="wrap">
+                <header class="section-head">
+                    <h2>Contact</h2>
+                    <p>Email is fastest</p>
                 </header>
 
-                <ol class="timeline">
-                    <li class="timeline-item reveal">
-                        <article class="timeline-card">
-                            <div class="timeline-top">
-                                <div>
-                                    <h3>AI Trainer</h3>
-                                    <p class="org">Handshake AI Fellowship <span class="muted">&middot; Remote</span></p>
-                                </div>
-                                <p class="period">Nov 2025 &ndash; Feb 2026</p>
-                            </div>
-                            <ul class="bullets">
-                                <li>Evaluated 100+ LLM responses across multiple domains, identifying failure patterns and creating 50+ adversarial prompts to improve model evaluation accuracy.</li>
-                                <li>Improved label consistency across the eval dataset by scoring outputs against rubrics for accuracy, clarity, and depth, feeding expert feedback into fine-tuning rounds.</li>
-                            </ul>
-                        </article>
-                    </li>
+                <div data-reveal>
+                    <p class="contact-line">I'm open to software engineering and security roles.</p>
 
-                    <li class="timeline-item reveal">
-                        <article class="timeline-card">
-                            <div class="timeline-top">
-                                <div>
-                                    <h3>Cybersecurity Program Lead</h3>
-                                    <p class="org">Discovery Lab Global <span class="muted">&middot; Dayton, OH</span></p>
-                                </div>
-                                <p class="period">Apr 2023 &ndash; Aug 2023</p>
-                            </div>
-                            <ul class="bullets">
-                                <li>Reduced human-factor security risks by creating 130+ pages of cybersecurity training materials used to educate high school instructors on phishing, social engineering, and network security practices.</li>
-                                <li>Made the curriculum hands-on by walking teachers through VPN setup and Wi-Fi hardening to model safe network practices for students.</li>
-                            </ul>
-                        </article>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <section class="section" id="projects">
-            <div class="shell">
-                <header class="section-head reveal">
-                    <p class="section-kicker">Projects</p>
-                    <h2>Things I've <em>built</em></h2>
-                </header>
-
-                <ol class="project-index">
-                    <li class="project-entry reveal">
-                        <div class="project-rail">
-                            <p class="project-num" aria-hidden="true">01</p>
-                            <p class="period">Jun &ndash; Aug 2026</p>
-                        </div>
-                        <div class="project-body">
-                            <h3>Tengai</h3>
-                            <a class="project-link" href="https://tengai.pages.dev/" target="_blank" rel="noopener noreferrer">tengai.pages.dev
-                                <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
-                            </a>
-                            <p class="project-summary">
-                                A production browser tool that turns any image into an installable
-                                Minecraft resource pack &mdash; one upload in, a drop-in
-                                <code>.zip</code> back.
-                            </p>
-                            <ul class="bullets">
-                                <li>Designed and shipped the whole pipeline, replacing a manual crop, face-map, and archive workflow with a single upload.</li>
-                                <li>Generated the complete six-face texture set, pack metadata, and archive in a single pass, producing output that installs without further user edits.</li>
-                                <li>Ran all processing client-side and deployed as a static site on Cloudflare Pages, so uploads never leave the browser and the tool runs with no backend or hosting cost.</li>
-                            </ul>
-                            <ul class="tags">
-                                <li>TypeScript</li>
-                                <li>React</li>
-                                <li>Vite</li>
-                                <li>Cloudflare Pages</li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="project-entry reveal">
-                        <div class="project-rail">
-                            <p class="project-num" aria-hidden="true">02</p>
-                            <p class="period">Feb &ndash; Jul 2026</p>
-                        </div>
-                        <div class="project-body">
-                            <h3>CosmoBoard</h3>
-                            <a class="project-link" href="https://cosmo-board.com/" target="_blank" rel="noopener noreferrer">cosmo-board.com
-                                <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
-                            </a>
-                            <p class="project-summary">
-                                A real-time collaborative scrum board that drew <strong>10,000+ views in its first week</strong>.
-                                I contributed 60+ commits across 8 merged pull requests.
-                            </p>
-                            <ul class="bullets">
-                                <li>Wired the PostgreSQL database and the Express API routes behind the board and card features.</li>
-                                <li>Owned frontend design end to end &mdash; themed dashboard, auth page, and board views in React with light/dark mode, avatar customization, and responsive mobile layouts.</li>
-                                <li>Built the core task-board workflow: drag-and-drop cards, WIP-limited collapsible columns, and threaded comments with S3-backed image uploads and last-edited attribution.</li>
-                                <li>Reduced credential-exposure risk by keeping secrets out of version control behind a documented <code>.env.example</code>, and hardened accounts with a password-change flow and a fix for a logout defect that left broken sessions.</li>
-                            </ul>
-                            <ul class="tags">
-                                <li>React</li>
-                                <li>Express.js</li>
-                                <li>Socket.IO</li>
-                                <li>PostgreSQL</li>
-                                <li>AWS S3</li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="project-entry reveal">
-                        <div class="project-rail">
-                            <p class="project-num" aria-hidden="true">03</p>
-                            <p class="period">Oct &ndash; Dec 2024</p>
-                        </div>
-                        <div class="project-body">
-                            <h3>Chat Security Simulation</h3>
-                            <p class="project-summary">
-                                A Python chat application used as a testbed for hardening a real client/server stack.
-                            </p>
-                            <ul class="bullets">
-                                <li>Prevented credential leakage by moving secrets to environment variables across Ubuntu and Windows deployments.</li>
-                                <li>Ran 10+ security tests against XSS, SQL injection, and DoS vulnerabilities, validating resilience through Wireshark traffic analysis.</li>
-                            </ul>
-                            <ul class="tags">
-                                <li>Python</li>
-                                <li>Wireshark</li>
-                                <li>Linux</li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="project-entry reveal">
-                        <div class="project-rail">
-                            <p class="project-num" aria-hidden="true">04</p>
-                            <p class="period">Sep &ndash; Dec 2024</p>
-                        </div>
-                        <div class="project-body">
-                            <h3>SEED Security Labs</h3>
-                            <p class="project-summary">
-                                Hands-on offensive and defensive network security work, taken from exploit to root cause.
-                            </p>
-                            <ul class="bullets">
-                                <li>Demonstrated how protocol weaknesses are exploited by running SYN flood and session hijacking attacks, then diagnosing the root cause.</li>
-                                <li>Traced packet flows by capturing and spoofing traffic with Wireshark and Scapy, and validated PKI encryption and certificate handling hands-on.</li>
-                            </ul>
-                            <ul class="tags">
-                                <li>Python</li>
-                                <li>Scapy</li>
-                                <li>Wireshark</li>
-                                <li>Ubuntu Linux</li>
-                            </ul>
-                        </div>
-                    </li>
-                </ol>
-
-                <p class="section-footnote reveal">
-                    More on
-                    <a href="https://github.com/Erelive" target="_blank" rel="noopener noreferrer">GitHub
-                        <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
-                    </a>
-                </p>
-            </div>
-        </section>
-
-        <section class="section section-alt" id="skills">
-            <div class="shell">
-                <header class="section-head reveal">
-                    <p class="section-kicker">Skills</p>
-                    <h2>What I <em>worked with</em></h2>
-                </header>
-
-                <div class="skills-grid">
-                    <article class="skill-card reveal">
-                        <h3>Languages</h3>
-                        <ul class="tags">
-                            <li>Python</li>
-                            <li>C</li>
-                            <li>JavaScript</li>
-                            <li>TypeScript</li>
-                            <li>SQL</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                        </ul>
-                    </article>
-
-                    <article class="skill-card reveal">
-                        <h3>Frameworks &amp; Libraries</h3>
-                        <ul class="tags">
-                            <li>React</li>
-                            <li>Node.js</li>
-                            <li>Express.js</li>
-                            <li>Socket.IO</li>
-                            <li>PostgreSQL</li>
-                            <li>Vite</li>
-                        </ul>
-                    </article>
-
-                    <article class="skill-card reveal">
-                        <h3>Networking</h3>
-                        <ul class="tags">
-                            <li>TCP/IP</li>
-                            <li>DNS</li>
-                            <li>HTTP</li>
-                            <li>SSH</li>
-                            <li>VPN</li>
-                            <li>Wi-Fi</li>
-                        </ul>
-                    </article>
-
-                    <article class="skill-card reveal">
-                        <h3>Tools &amp; Platforms</h3>
-                        <ul class="tags">
-                            <li>Git</li>
-                            <li>VS Code</li>
-                            <li>Wireshark</li>
-                            <li>Cloudflare Pages</li>
-                            <li>Oracle VM</li>
-                            <li>Ubuntu Linux</li>
-                            <li>Windows</li>
-                        </ul>
-                    </article>
-
-                    <article class="skill-card reveal">
-                        <h3>Security Frameworks</h3>
-                        <ul class="tags">
-                            <li>NIST CSF</li>
-                            <li>NIST SP 800-171</li>
-                            <li>ISO/IEC 27001</li>
-                        </ul>
-                    </article>
-
-                    <article class="skill-card reveal">
-                        <h3>Certification</h3>
-                        <p class="cert-name">CompTIA Security+</p>
-                        <p class="cert-meta">SY0-701 &middot; Oct 2025 &ndash; Oct 2028</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section contact" id="contact">
-            <div class="shell">
-                <div class="contact-card reveal">
-                    <p class="section-kicker">Contact</p>
-                    <h2>Let's build <em>something</em></h2>
-                    <p class="contact-blurb">
-                        I'm open to software engineering and security roles. The fastest way to reach me is
-                        email.
+                    <p class="contact-email">
+                        <a href="mailto:kjiang052003@gmail.com">kjiang052003@gmail.com</a>
+                        <button class="text-btn" type="button" data-copy="kjiang052003@gmail.com" hidden>Copy</button>
                     </p>
 
-                    <div class="contact-actions">
-                        <a href="mailto:kjiang052003@gmail.com" class="btn btn-primary">
-                            <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
-                            kjiang052003@gmail.com
-                        </a>
-                        <a href="Kevin_Jiang_Resume.pdf" class="btn btn-ghost" download>
-                            <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
-                            Download resume
-                        </a>
-                    </div>
-
                     <ul class="contact-links">
-                        <li>
-                            <a href="https://github.com/Erelive" target="_blank" rel="noopener noreferrer">
-                                <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
-                                github.com/Erelive
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://linkedin.com/in/kjiangcs" target="_blank" rel="noopener noreferrer">
-                                <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
-                                linkedin.com/in/kjiangcs
-                            </a>
-                        </li>
+                        <li><a class="go" href="https://github.com/Erelive" target="_blank" rel="noopener noreferrer">github.com/Erelive <span aria-hidden="true">&nearr;</span></a></li>
+                        <li><a class="go" href="https://linkedin.com/in/kjiangcs" target="_blank" rel="noopener noreferrer">linkedin.com/in/kjiangcs <span aria-hidden="true">&nearr;</span></a></li>
+                        <li><a class="go" href="Kevin_Jiang_Resume.pdf" download>Download resume <span aria-hidden="true">&darr;</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -485,13 +544,16 @@
     </main>
 
     <footer class="site-footer">
-        <div class="shell footer-inner">
-            <p>&copy; <span id="year">2026</span> Kevin Jiang</p>
-            <p class="muted">Built with plain HTML, CSS, and JavaScript.</p>
+        <div class="wrap">
+            <div class="footer-inner">
+                <p>&copy; <span id="year">2026</span> Kevin Jiang</p>
+                <p>Built with plain HTML, CSS, and JavaScript.</p>
+                <p><a href="#top">Back to top &uarr;</a></p>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=4"></script>
 </body>
 
 </html>
