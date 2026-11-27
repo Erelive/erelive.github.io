@@ -146,12 +146,12 @@ a {
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
     text-decoration-color: var(--underline);
-    transition: background-color 0.15s, color 0.15s, text-decoration-color 0.15s;
+    background: linear-gradient(var(--wedge), var(--wedge)) no-repeat 0 100% / 0 0.3em;
+    transition: background-size 0.3s var(--ease), color 0.15s, text-decoration-color 0.15s;
 }
 
 a:hover {
-    background: var(--mark);
-    color: var(--mark-ink);
+    background-size: 100% 0.3em;
     text-decoration-color: currentColor;
 }
 
@@ -398,12 +398,12 @@ html:not(.js) .header-tools {
     gap: 0.75rem;
     padding: 0.7rem 0;
     border-top: 1px solid var(--rule);
+    background-size: 0 3px;
     text-decoration: none;
 }
 
-/* The highlight runs a little past the rules without moving the text off the grid. */
 .hero-links a:hover {
-    box-shadow: -0.5rem 0 0 var(--mark), 0.5rem 0 0 var(--mark);
+    background-size: 100% 3px;
 }
 
 .hero-links li:last-child a {
@@ -474,8 +474,8 @@ html:not(.js) .header-tools {
 }
 
 .section-head h2 {
-    font-size: 1rem;
-    letter-spacing: -0.01em;
+    font-size: clamp(1.375rem, 2.4vw, 1.75rem);
+    letter-spacing: -0.03em;
 }
 
 .section-head p {
@@ -540,8 +540,19 @@ html:not(.js) .header-tools {
     line-height: 1;
 }
 
+.feature-title a,
+.contact-email a {
+    background-position: 0 90%;
+    background-size: 0 0.08em;
+}
+
 .feature-title a {
     text-decoration: none;
+}
+
+.feature-title a:hover,
+.contact-email a:hover {
+    background-size: 100% 0.08em;
 }
 
 .feature-aside {
@@ -867,10 +878,18 @@ html:not(.js) .mapper-live {
     margin-top: clamp(2.25rem, 5vw, 4rem);
     padding-top: 0.9rem;
     border-top: 1px solid var(--rule);
-    color: var(--ink-3);
-    font-size: 0.875rem;
+    color: var(--ink-2);
+    font-size: 1rem;
     font-weight: 400;
     letter-spacing: 0;
+}
+
+.rows + .subhead {
+    margin-top: 0;
+}
+
+.subhead + .rows {
+    margin-top: clamp(1.5rem, 3vw, 2.25rem);
 }
 
 .row {
@@ -892,7 +911,8 @@ html:not(.js) .mapper-live {
 
 .row-when {
     grid-column: 1 / span 2;
-    padding-top: 0.25rem;
+    padding-top: 0.35rem;
+    font-size: 0.8125rem;
 }
 
 .row-what {
@@ -901,27 +921,73 @@ html:not(.js) .mapper-live {
 
 .row-what h3,
 .row-what h4 {
-    font-size: 1.1875rem;
-    letter-spacing: -0.02em;
+    font-size: clamp(1.25rem, 1.9vw, 1.4375rem);
+    letter-spacing: -0.025em;
 }
 
 .row-what p {
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
     color: var(--ink-2);
-    font-size: 0.9375rem;
+    font-size: 1.0313rem;
 }
 
 .row-what .stack {
     margin-top: 0.7rem;
     color: var(--ink-3);
     font-family: var(--mono);
-    font-size: 0.78rem;
+    font-size: 0.8125rem;
 }
 
 .row-detail {
     grid-column: 7 / -1;
     color: var(--ink-2);
-    font-size: 0.9688rem;
+    font-size: 1.0625rem;
+}
+
+.rows--lg .row {
+    grid-template-rows: auto 1fr;
+    row-gap: 0.6rem;
+    padding-block: clamp(1.75rem, 3.8vw, 3rem);
+}
+
+.rows--lg > .row:first-child {
+    padding-top: 0;
+}
+
+.rows--lg .row-when {
+    grid-column: 1 / span 5;
+    grid-row: 1;
+    padding-top: 0;
+    font-size: 0.875rem;
+}
+
+.rows--lg .row-what {
+    grid-column: 1 / span 5;
+    grid-row: 2;
+}
+
+.rows--lg .row-what h3,
+.rows--lg .row-what h4 {
+    font-size: clamp(1.625rem, 3vw, 2.25rem);
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+}
+
+.rows--lg .row-what p {
+    margin-top: 0.5rem;
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
+}
+
+.rows--lg .row-detail {
+    grid-column: 7 / -1;
+    grid-row: 1 / span 2;
+    color: var(--ink);
+    font-size: clamp(1.0625rem, 1.35vw, 1.1875rem);
+    line-height: 1.55;
+}
+
+.rows--lg .dashes li + li {
+    margin-top: 0.75rem;
 }
 
 .more {
@@ -948,14 +1014,15 @@ html:not(.js) .mapper-live {
 
 .spec dt {
     grid-column: 1 / span 2;
-    padding-top: 0.15rem;
+    padding-top: 0.2rem;
     color: var(--ink-3);
-    font-size: 0.875rem;
+    font-size: 0.9688rem;
 }
 
 .spec dd {
     grid-column: 3 / -1;
     max-width: 62ch;
+    font-size: clamp(1.0625rem, 1.35vw, 1.1875rem);
 }
 
 /* ---------- about ---------- */
@@ -1435,6 +1502,21 @@ html:not(.js) .mapper-live {
 
     .entry-head {
         position: static;
+    }
+
+    .rows--lg .row {
+        grid-template-rows: none;
+    }
+
+    .rows--lg .row-when,
+    .rows--lg .row-what,
+    .rows--lg .row-detail {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .rows--lg .row-detail {
+        margin-top: 0.75rem;
     }
 
     .feature--wide .feature-figure {
